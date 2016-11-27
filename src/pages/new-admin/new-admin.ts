@@ -23,7 +23,9 @@ export class NewAdminPage {
         lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required]), UsernameValidator.checkUsername],
         username: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
         type: ['',Validators.compose([Validators.required])],
-        bio: ['']
+        bio: [''],
+        password: ['', Validators.compose([Validators.required])],
+        passwordConf: ['', Validators.compose([Validators.required])]
     });
  
   }
