@@ -17,20 +17,20 @@
     
         <ion-item>
             <ion-label floating>First Name</ion-label>
-            <ion-input formControlName="firstName" type="text" [class.invalid]="!newPatientForm.controls.firstName.valid && (newPatientForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+            <ion-input formControlName="patient_first_name" type="text" [class.invalid]="!newPatientForm.controls.patient_first_name.valid && (newPatientForm.controls.patient_first_name.dirty || submitAttempt)"></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="!newPatientForm.controls.firstName.valid  && (newPatientForm.controls.firstName.dirty || submitAttempt)">
-            <p>Please enter a valid name.</p>
+        <ion-item *ngIf="!newPatientForm.controls.patient_first_name.valid  && (newPatientForm.controls.patient_first_name.dirty || submitAttempt)">
+            <p>Please enter a valid first name.</p>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Last Name</ion-label>
-            <ion-input formControlName="lastName" type="text" [class.invalid]="!newPatientForm.controls.lastName.valid && (submitAttempt)"></ion-input>
+            <ion-input formControlName="patient_last_name" type="text" [class.invalid]="!newPatientForm.controls.patient_last_name.valid && (submitAttempt)"></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="!newPatientForm.controls.lastName.valid  && (newPatientForm.controls.lastName.dirty || submitAttempt)">
-            <p>Please enter a valid name.</p>
+        <ion-item *ngIf="!newPatientForm.controls.patient_last_name.valid  && (newPatientForm.controls.patient_last_name.dirty || submitAttempt)">
+            <p>Please enter a valid last name.</p>
         </ion-item>
 
         </form>

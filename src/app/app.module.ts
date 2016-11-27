@@ -28,7 +28,7 @@ import { GetPatients } from '../providers/get-patients';
     PatientTriagePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

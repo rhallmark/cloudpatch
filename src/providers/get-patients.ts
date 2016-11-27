@@ -35,6 +35,11 @@ export class GetPatients {
       .map(res => <Patient>res.json());
   }
 
+  newPatient(patient): Observable<number> {
+    return this.http.post(`${this.apiUrl}/newPatient`, patient)
+      .map(res => <number>res.json());
+  }
+
 
 }
 
