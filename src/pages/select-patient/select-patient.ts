@@ -15,19 +15,17 @@ export class SelectPatientPage {
 
   patients: Patient[];
 
-  constructor(public navCtrl: NavController, private getPatientsService: GetPatients) {
-    getPatientsService.getPatientList().subscribe( patients =>{
+  constructor(public navCtrl: NavController, private getPatientService: GetPatients) {
+    getPatientService.getPatientList().subscribe( patients =>{
       this.patients = patients;
       //console.log(patients);
     })
 
   }
 
-  navToTriage(patient_first_name: string) {
-    this.navCtrl.push(PatientTriagePage, {patient_first_name});
+  navToTriage(_id: string, patient_first_name: string) {
+    this.navCtrl.push(PatientTriagePage, {_id, patient_first_name});
   }
-
-
 
 
 }

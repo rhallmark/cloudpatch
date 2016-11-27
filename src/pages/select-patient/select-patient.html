@@ -10,12 +10,13 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar></ion-searchbar>
   <h3>Patients</h3>
   <ion-list>
-    <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToTriage(patient.patient_first_name)">
+    <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToTriage(patient._id, patient.patient_first_name)">
 
       <div class="number">{{patient._id}}</div>
-      <h2>{{ patient.patient_first_name }}</h2>
+      <h2>{{ patient.patient_first_name }} {{patient.patient_last_name}}</h2>
       <!--<div class="numberCircle">{{patient.id}}</div>
       <h2>{{ patient.login }}</h2>-->
 

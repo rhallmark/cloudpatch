@@ -1,9 +1,44 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{patient_first_name}}'s Triage Information</ion-title>
+    <ion-title>Triage</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding >
-  <h3>Triage</h3>
+  <h3>{{patient_first_name}}'s Triage Information</h3>
+  <!--<h3>{{_id}}'s Triage Information</h3>-->
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Patient ID</ion-label>
+      <ion-badge item-right>{{patient?._id}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-badge item-right>{{patient?.patient_first_name}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-badge item-right>{{patient?.patient_last_name}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Blood Type</ion-label>
+      <ion-badge item-right>{{patient?.blood_type}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Temperature</ion-label>
+      <ion-badge item-right>{{patient?.temperature}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Heart Rate</ion-label>
+      <ion-badge item-right>{{patient?.heart_rate}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Diagnosis</ion-label>
+      <ion-badge item-right>{{patient?.diagnosis}}</ion-badge>
+    </ion-item>
+  </ion-list>    
+
 </ion-content>
+
+

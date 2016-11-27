@@ -17,6 +17,7 @@ export class GetPatients {
     console.log('Hello GetPatients Provider');
   }
 
+
   //Load all 'patients'
   getPatientList(): Observable<Patient[]> {
     return this.http.get(`${this.apiUrl}/patientList`)
@@ -24,7 +25,7 @@ export class GetPatients {
   }
 
 
-  getPatient(patientID): Observable<Patient> {
+  getPatient(patientID: string): Observable<Patient> {
     return this.http.get(`${this.apiUrl}/patient/id/${patientID}`)
       .map(res => <Patient>res.json());
   }

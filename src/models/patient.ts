@@ -1,12 +1,16 @@
 
 export interface Patient {
 
+    _id: number;
     patient_first_name: string;
     patient_last_name: string;
-    _id: number;
+    blood_type: string;
+    diagnosis: string;
+    heart_rate: number;
+    temperature: number;
+
     height: number;
     weight: number;
-    temperature: number;
     pulse: number;
     bloodPressureSystolic: number;
     bloodPressureDiastolic: number;
