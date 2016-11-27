@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon> 
     </button>
@@ -10,5 +10,31 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>New Patient page</h3>
+    <ion-list no-lines>
+        <form [formGroup]="newPatientForm">
+    
+        <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input formControlName="firstName" type="text" [class.invalid]="!newPatientForm.controls.firstName.valid && (newPatientForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!newPatientForm.controls.firstName.valid  && (newPatientForm.controls.firstName.dirty || submitAttempt)">
+            <p>Please enter a valid name.</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input formControlName="lastName" type="text" [class.invalid]="!newPatientForm.controls.lastName.valid && (submitAttempt)"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!newPatientForm.controls.lastName.valid  && (newPatientForm.controls.lastName.dirty || submitAttempt)">
+            <p>Please enter a valid name.</p>
+        </ion-item>
+
+        </form>
+
+    </ion-list>
+ 
+    <button ion-button full color="primary" (click)="save()">Create Account!</button>
+
 </ion-content>

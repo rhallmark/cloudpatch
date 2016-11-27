@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 
 import { Patient } from '../../models/patient';
 
-import { PatientTriagePage } from '../patient-triage/patient-triage';
+import { StationsPage } from '../stations/stations';
+import { PatientTriagePage } from '../stations/patient-triage/patient-triage';
 
 import { GetPatients } from '../../providers/get-patients';
 
@@ -23,8 +24,8 @@ export class SelectPatientPage {
 
   }
 
-  navToTriage(_id: string, patient_first_name: string) {
-    this.navCtrl.push(PatientTriagePage, {_id, patient_first_name});
+  navToStations(_id: string, patient_first_name: string) {
+    this.navCtrl.push(StationsPage, {_id, patient_first_name});
   }
 
 

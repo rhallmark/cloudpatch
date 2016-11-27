@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon> 
+    </button>
+    <ion-title>
+      New Administrator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+            <!--<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
+            <ion-list no-lines>
+                <form [formGroup]="signUpForm">
+            
+                <ion-item>
+                    <ion-label floating>First Name</ion-label>
+                    <ion-input formControlName="firstName" type="text" [class.invalid]="!signUpForm.controls.firstName.valid && (signUpForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+    
+                <ion-item *ngIf="!signUpForm.controls.firstName.valid  && (signUpForm.controls.firstName.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+    
+                <ion-item>
+                    <ion-label floating>Last Name</ion-label>
+                    <ion-input formControlName="lastName" type="text" [class.invalid]="!signUpForm.controls.lastName.valid && (submitAttempt)"></ion-input>
+                </ion-item>
+    
+                <ion-item *ngIf="!signUpForm.controls.lastName.valid  && (signUpForm.controls.lastName.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+ 
+                <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input [class.invalid]="!signUpForm.controls.username.valid && (signUpForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text"></ion-input>
+                </ion-item>
+    
+                <ion-item *ngIf="signUpForm.controls.username.pending">
+                    <p>Checking username...</p>
+                </ion-item>
+    
+                <ion-item *ngIf="!signUpForm.controls.username.valid && !signUpForm.controls.username.pending && (signUpForm.controls.username.dirty || submitAttempt)">
+                    <p>Sorry, that username can not be used!</p>
+                </ion-item>
+  
+                  <ion-item>
+                      <ion-label floating>Account Type</ion-label>
+                      <ion-select [class.invalid]="!signUpForm.controls.type.valid && (signUpForm.controls.type.dirty || submitAttempt)" formControlName="type">
+                          <ion-option value="admin" checked="true">Administrator</ion-option>
+                          <ion-option value="user">User</ion-option>
+                      </ion-select>
+                  </ion-item>
+  
+                  <ion-item>
+                      <ion-label floating>Bio</ion-label>
+                      <ion-textarea formControlName="bio"></ion-textarea>
+                  </ion-item>
+    
+                </form>
+    
+            </ion-list>
+ 
+        <button ion-button full color="primary" (click)="save()">Create Account!</button>
+
+
+</ion-content>

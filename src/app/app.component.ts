@@ -8,7 +8,10 @@ import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { SelectPatientPage } from '../pages/select-patient/select-patient';
 import { NewPatientPage } from '../pages/new-patient/new-patient';
+import { NewAdminPage } from '../pages/new-admin/new-admin';
 
+//needed?
+import { StationsPage } from '../pages/stations/stations';
 
 
 @Component({
@@ -31,6 +34,7 @@ export class MyApp {
       { title: 'About CloudPatch', component: AboutPage },
       { title: 'Select Patient', component: SelectPatientPage },
       { title: 'New Patient', component: NewPatientPage },
+      { title: 'New Administrator', component: NewAdminPage }
     ];
   }
 

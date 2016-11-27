@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
+// Validators
+import { PatientValidator } from  '../validators/v_patient';
 
 @Component({
   selector: 'page-new-patient',
@@ -8,10 +11,29 @@ import { NavController } from 'ionic-angular';
 })
 export class NewPatientPage {
 
-  constructor(public navCtrl: NavController) {}
+  newPatientForm: FormGroup;
 
-  ionViewDidLoad() {
-    console.log('Hello New Patient Page');
+  submitAttempt: boolean = false;
+
+
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+
+    this.newPatientForm = formBuilder.group({
+        firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required]), PatientValidator.checkUsername]
+    });
+ 
   }
+
+ 
+    save(){
+      this.submitAttempt = true;
+
+      if(this.newPatientForm.valid){
+        console.log("Success");
+        console.log(this.newPatientForm.value);
+      }
+    }
+ 
 
 }

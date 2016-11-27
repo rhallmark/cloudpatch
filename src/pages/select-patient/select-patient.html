@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon> 
     </button>
@@ -13,7 +13,7 @@
   <ion-searchbar></ion-searchbar>
   <h3>Patients</h3>
   <ion-list>
-    <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToTriage(patient._id, patient.patient_first_name)">
+    <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToStations(patient._id, patient.patient_first_name)">
 
       <div class="number">{{patient._id}}</div>
       <h2>{{ patient.patient_first_name }} {{patient.patient_last_name}}</h2>
