@@ -30,6 +30,11 @@ export class GetPatients {
       .map(res => <Patient>res.json());
   }
 
+  updatePatient(patient): Observable<Patient> {
+    return this.http.post(`${this.apiUrl}/patient`, patient)
+      .map(res => <Patient>res.json());
+  }
+
 
 }
 

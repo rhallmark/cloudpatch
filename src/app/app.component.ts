@@ -31,10 +31,10 @@ export class MyApp {
     // This is like router in Angular2
     this.pages = [
       { title: 'Login', component: LoginPage },
-      { title: 'About CloudPatch', component: AboutPage },
       { title: 'Select Patient', component: SelectPatientPage },
       { title: 'New Patient', component: NewPatientPage },
-      { title: 'New Administrator', component: NewAdminPage }
+      { title: 'New Administrator', component: NewAdminPage },
+      { title: 'About CloudPatch', component: AboutPage }
     ];
   }
 

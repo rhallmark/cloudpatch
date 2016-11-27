@@ -7,77 +7,70 @@
 <ion-content padding >
   <h3>{{patient?.patient_first_name}}'s Triage Information</h3>
   <!--<h3>{{_id}}'s Triage Information</h3>-->
-
-
-  <form (ngSubmit)="logForm()">
-    <ion-item>
-      <ion-label floating>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="patient.patient_first_name" name="firstName"></ion-input>
+  <br><br>
+  <form [formGroup]="triageForm">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input formControlName="patient_first_name" type="text" [class.invalid]="!triageForm.controls.patient_first_name.valid && (triageForm.controls.patient_first_name.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!triageForm.controls.patient_first_name.valid  && (triageForm.controls.patient_first_name.dirty || submitAttempt)">
+        <p>Please enter a valid first name.</p>
+      </ion-item>
+     <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input formControlName="patient_last_name" type="text" [class.invalid]="!triageForm.controls.patient_last_name.valid && (triageForm.controls.patient_last_name.dirty || submitAttempt)"></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Update Name</button>
+      <ion-item *ngIf="!triageForm.controls.patient_last_name.valid  && (triageForm.controls.patient_last_name.dirty || submitAttempt)">
+        <p>Please enter a valid last name.</p>
+      </ion-item>
+     <ion-item>
+      <ion-label floating>Height</ion-label>
+      <ion-input formControlName="height" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Weight</ion-label>
+      <ion-input formControlName="weight" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Temperature</ion-label>
+      <ion-input formControlName="temperature" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Pulse/Heart Rate</ion-label>
+      <ion-input formControlName="pulse" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Blood Pressure Systolic</ion-label>
+      <ion-input formControlName="bloodPressureSystolic" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Blood Pressure Diastolic</ion-label>
+      <ion-input formControlName="bloodPressureDiastolic" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label><p>Final Blood Pressure</p></ion-label>
+      <ion-badge item-right>{{patient?.bloodPressureSystolic}}/{{patient?.bloodPressureDiastolic}}</ion-badge>
+    </ion-item>
+    <br>
+     <ion-item>
+      <ion-label floating>Blood Type</ion-label>
+      <ion-input formControlName="blood_type" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Chief Complaint</ion-label>
+      <ion-input formControlName="chiefComplaint" type="text"></ion-input>
+    </ion-item>
+
+    </ion-list>
   </form>
-
-
-  <ion-list>
-    <ion-item>
-      <ion-label>Patient ID</ion-label>
-      <ion-badge item-right>{{patient?._id}}</ion-badge>
-    </ion-item>
-      <!--
-     <ion-item>
-      <ion-label>First Name</ion-label>
-      <ion-badge item-right>{{patient?.patient_first_name}}</ion-badge>
-    </ion-item>
-          -->
-     <ion-item>
-      <ion-label>Last Name</ion-label>
-      <ion-badge item-right>{{patient?.patient_last_name}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Height</ion-label>
-      <ion-badge item-right>{{patient?.height}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Weight</ion-label>
-      <ion-badge item-right>{{patient?.weight}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Temperature</ion-label>
-      <ion-badge item-right>{{patient?.temperature}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Pulse/Heart Rate</ion-label>
-      <ion-badge item-right>{{patient?.heart_rate}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Blood Pressure Systolic</ion-label>
-      <ion-badge item-right>{{patient?.bloodPressureSystolic}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Blood Pressure Diastolic</ion-label>
-      <ion-badge item-right>{{patient?.bloodPressureDiastolic}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Final Blood Pressure</ion-label>
-      <ion-badge item-right>{{patient?.bloodPressureSystolic}}/
-                            {{patient?.bloodPressureDiastolic}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Blood Type</ion-label>
-      <ion-badge item-right>{{patient?.blood_type}}</ion-badge>
-    </ion-item>
-     <ion-item>
-      <ion-label>Chief Complaint</ion-label>
-      <ion-badge item-right>{{patient?.chiefComplaint}}</ion-badge>
-    </ion-item>
-  </ion-list>    
 
   <ion-grid>
     <ion-row>
-      <ion-col width-25><button ion-button icon-left color="danger">Discard</button></ion-col>
+      <ion-col width-25><button ion-button icon-left color="danger" (click)="discard()">Discard</button></ion-col>
       <ion-col width-25></ion-col>
       <ion-col width-25></ion-col>
-      <ion-col width-25><button ion-button icon-right>Save</button></ion-col>
+      <ion-col width-25><button ion-button icon-right (click)="save()">Save</button></ion-col>
     </ion-row>
   </ion-grid>
 
