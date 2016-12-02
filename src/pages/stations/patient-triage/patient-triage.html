@@ -1,13 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Triage</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding >
-  <h3>{{patient?.patient_first_name}}'s Triage Information</h3>
-  <!--<h3>{{_id}}'s Triage Information</h3>-->
-  <br><br>
+
+  <h3>Triage for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+
+
+  <br>
   <form [formGroup]="triageForm">
     <ion-list>
       <ion-item>
@@ -42,15 +58,19 @@
     </ion-item>
      <ion-item>
       <ion-label floating>Blood Pressure Systolic</ion-label>
-      <ion-input formControlName="bloodPressureSystolic" type="text"></ion-input>
+      <ion-input formControlName="bloodPressureSystolic" 
+                  type="text"
+                  [(ngModel)]="patient.bloodPressureSystolic"></ion-input>
     </ion-item>
      <ion-item>
       <ion-label floating>Blood Pressure Diastolic</ion-label>
-      <ion-input formControlName="bloodPressureDiastolic" type="text"></ion-input>
+      <ion-input formControlName="bloodPressureDiastolic"
+                 type="text"
+                 [(ngModel)]="patient.bloodPressureDiastolic"></ion-input>
     </ion-item>
      <ion-item>
       <ion-label><p>Final Blood Pressure</p></ion-label>
-      <ion-badge item-right>{{patient?.bloodPressureSystolic}}/{{patient?.bloodPressureDiastolic}}</ion-badge>
+      <ion-badge item-right>{{patient?.bloodPressureSystolic}} / {{patient?.bloodPressureDiastolic}}</ion-badge>
     </ion-item>
     <br>
      <ion-item>
@@ -67,13 +87,18 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col width-25><button ion-button icon-left color="danger" (click)="discard()">Discard</button></ion-col>
+      <ion-col width-25><button ion-button icon-left color="light" (click)="discard()">Discard</button></ion-col>
       <ion-col width-25></ion-col>
       <ion-col width-25></ion-col>
       <ion-col width-25><button ion-button icon-right (click)="save()">Save</button></ion-col>
     </ion-row>
   </ion-grid>
 
+
+<button ion-button full color="light" (click)="discard()">Discard</button>
+<button ion-button full (click)="save()">SaveFull Button</button>
+
+  <!--
   <ion-fab right bottom>
   <button ion-fab color="primary"><ion-icon name="arrow-dropleft"></ion-icon></button>
     <ion-fab-list side="left">
@@ -81,7 +106,7 @@
       <button ion-fab><ion-icon style="color: red;" name="close-circle"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
- 
+  -->
 
 
 </ion-content>

@@ -2,6 +2,17 @@
         page-stations {
 
 
+        //For Patient Card
+        ion-col{
+            font-size: 18px;
+        }
+
+        #right{
+            text-align: right;
+        }
+
+
+
         ion-item{
             padding-top: 20px;
             padding-bottom: 20px;
@@ -27,9 +38,7 @@
         .invalid {
             border: 1px solid #ea6153;
         }
-        h3 {
-            text-align: center;
-        }
+
 
     }
 }

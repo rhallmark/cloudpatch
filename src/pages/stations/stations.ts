@@ -15,20 +15,16 @@ export class StationsPage {
   stations: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
                         "Gastrointestinal", "Musculoskeletal", "Psychriatric", "Women's Health"];
 
-  _id: string;
-  patient_first_name: string;
-
   patient: Patient;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private getPatientService: GetPatients ) {
-    this._id = navParams.get('_id');
-    this.patient_first_name = navParams.get('patient_first_name');
+    this.patient = navParams.get('patient');
 
-    // Load Patient Details
-    getPatientService.getPatient(this._id).subscribe(patient => {
-      this.patient = patient;
-      //console.log(patient);
-    })
+    // // Load Patient Details
+    // getPatientService.getPatient(this._id).subscribe(patient => {
+    //   this.patient = patient;
+    //   //console.log(patient);
+    // })
   }
 
   
@@ -47,8 +43,13 @@ export class StationsPage {
     this.navCtrl.push(PatientTriagePage, {patient});
   }
 
-  ionViewDidLoad() {
-    console.log('Hello StationsPage Page');
+  ionViewDidEnter() {
+    // currently this runs twice because of constructor.
+    // This is so data updates even when navigating back to the page
+      this.getPatientService.getPatient(String(this.patient._id)).subscribe(patient => {
+      this.patient = patient;
+      //console.log(patient);
+    })
   }
 
 }

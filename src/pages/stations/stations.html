@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon> 
     </button>
@@ -10,8 +10,24 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar></ion-searchbar>
-  <h3>Stations</h3>
+
+<h3>Stations for Patient:</h3>
+<ion-card>
+  <ion-grid>
+    <ion-card-header>
+        <ion-row>
+          <ion-col width-20>ID</ion-col>
+          <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-20>Name</ion-col>
+          <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+        </ion-row>
+    </ion-card-header>
+  </ion-grid>
+</ion-card>
+
+  <br>
   <ion-list>
     <button ion-item *ngFor="let station of stations" id="stations" (click)="nav(patient, station)">
 

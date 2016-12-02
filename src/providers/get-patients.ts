@@ -26,12 +26,12 @@ export class GetPatients {
 
 
   getPatient(patientID: string): Observable<Patient> {
-    return this.http.get(`${this.apiUrl}/patient/id/${patientID}`)
+    return this.http.get(`${this.apiUrl}/patient/${patientID}`)
       .map(res => <Patient>res.json());
   }
 
-  updatePatient(patient): Observable<Patient> {
-    return this.http.post(`${this.apiUrl}/patient`, patient)
+  updatePatient(patientFormData, patientID: string): Observable<Patient> {
+    return this.http.post(`${this.apiUrl}/patient/${patientID}`, patientFormData)
       .map(res => <Patient>res.json());
   }
 

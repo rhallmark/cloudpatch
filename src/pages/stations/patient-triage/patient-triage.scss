@@ -1,6 +1,16 @@
 .ios, .md {   
         page-patient-triage {
 
+         //For Patient Card
+        ion-col{
+            font-size: 18px;
+        }
+
+        #right{
+            text-align: right;
+        }
+
+        
 
         ion-item{
             padding-top: 5px;
@@ -27,9 +37,7 @@
         .invalid {
             border: 1px solid #ea6153;
         }
-        h3 {
-            text-align: center;
-        }
+
 
     }
 }
