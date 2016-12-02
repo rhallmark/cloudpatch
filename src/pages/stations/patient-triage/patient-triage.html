@@ -40,20 +40,27 @@
       <ion-item *ngIf="!triageForm.controls.patient_last_name.valid  && (triageForm.controls.patient_last_name.dirty || submitAttempt)">
         <p>Please enter a valid last name.</p>
       </ion-item>
+    <ion-item>
+        <ion-label floating>Sex (Male / Female)</ion-label>
+        <ion-select formControlName="sex">
+            <ion-option value="male" >Male</ion-option>
+            <ion-option value="female" >Female</ion-option>
+        </ion-select>
+    </ion-item>
      <ion-item>
-      <ion-label floating>Height</ion-label>
+      <ion-label floating>Height (Inches)</ion-label>
       <ion-input formControlName="height" type="text"></ion-input>
     </ion-item>
      <ion-item>
-      <ion-label floating>Weight</ion-label>
+      <ion-label floating>Weight (Pounds)</ion-label>
       <ion-input formControlName="weight" type="text"></ion-input>
     </ion-item>
      <ion-item>
-      <ion-label floating>Temperature</ion-label>
+      <ion-label floating>Temperature (Fahrenheit)</ion-label>
       <ion-input formControlName="temperature" type="text"></ion-input>
     </ion-item>
      <ion-item>
-      <ion-label floating>Pulse/Heart Rate</ion-label>
+      <ion-label floating>Pulse (BPM)</ion-label>
       <ion-input formControlName="pulse" type="text"></ion-input>
     </ion-item>
      <ion-item>
@@ -73,9 +80,18 @@
       <ion-badge item-right>{{patient?.bloodPressureSystolic}} / {{patient?.bloodPressureDiastolic}}</ion-badge>
     </ion-item>
     <br>
-     <ion-item>
-      <ion-label floating>Blood Type</ion-label>
-      <ion-input formControlName="blood_type" type="text"></ion-input>
+    <ion-item>
+        <ion-label floating>Blood Type</ion-label>
+        <ion-select formControlName="blood_type">
+            <ion-option value="O+" >O+</ion-option>
+            <ion-option value="O-" >O-</ion-option>
+            <ion-option value="A+" >A+</ion-option>
+            <ion-option value="A-" >A-</ion-option>
+            <ion-option value="B+" >B+</ion-option>
+            <ion-option value="B-" >B-</ion-option>
+            <ion-option value="AB+" >AB+</ion-option>
+            <ion-option value="AB-" >AB-</ion-option>
+        </ion-select>
     </ion-item>
      <ion-item>
       <ion-label floating>Chief Complaint</ion-label>
@@ -96,7 +112,7 @@
 
 
 <button ion-button full color="light" (click)="discard()">Discard</button>
-<button ion-button full (click)="save()">SaveFull Button</button>
+<button ion-button full (click)="save()">Save</button>
 
   <!--
   <ion-fab right bottom>

@@ -24,8 +24,8 @@ export class SelectPatientPage {
 
   }
 
-  navToStations(patient: Patient,_id: string, patient_first_name: string) {
-    this.navCtrl.push(StationsPage, {patient, _id, patient_first_name});
+  navToStations(patient: Patient) {
+    this.navCtrl.push(StationsPage, {patient});
   }
 
 

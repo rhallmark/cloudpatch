@@ -12,19 +12,18 @@ import { PatientTriagePage } from './patient-triage/patient-triage';
 })
 export class StationsPage {
 
-  stations: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
+  stations_M: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
+                        "Gastrointestinal", "Musculoskeletal", "Psychriatric"];
+  stations_F: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
                         "Gastrointestinal", "Musculoskeletal", "Psychriatric", "Women's Health"];
+
+  stations: string[] = this.stations_F;
 
   patient: Patient;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private getPatientService: GetPatients ) {
     this.patient = navParams.get('patient');
 
-    // // Load Patient Details
-    // getPatientService.getPatient(this._id).subscribe(patient => {
-    //   this.patient = patient;
-    //   //console.log(patient);
-    // })
   }
 
   
@@ -46,10 +45,17 @@ export class StationsPage {
   ionViewDidEnter() {
     // currently this runs twice because of constructor.
     // This is so data updates even when navigating back to the page
-      this.getPatientService.getPatient(String(this.patient._id)).subscribe(patient => {
-      this.patient = patient;
-      //console.log(patient);
+    this.getPatientService.getPatient(String(this.patient._id)).subscribe(patient => {
+    this.patient = patient;
+    
+    if(this.patient.sex == "male"){
+      this.stations = this.stations_M;
+    }
+    else{
+      this.stations = this.stations_F;
+    }
     })
+
   }
 
 }

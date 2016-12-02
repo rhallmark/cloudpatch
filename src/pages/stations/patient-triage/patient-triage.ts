@@ -22,6 +22,7 @@ export class PatientTriagePage {
     this.triageForm = formBuilder.group({
         patient_first_name: [this.patient.patient_first_name, Validators.compose([Validators.required])],
         patient_last_name: [this.patient.patient_last_name, Validators.compose([Validators.required])],
+        sex: [this.patient.sex],
         height: [this.patient.height],
         weight: [this.patient.weight],
         temperature: [this.patient.temperature],
