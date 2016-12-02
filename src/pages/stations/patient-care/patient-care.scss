@@ -1,7 +1,10 @@
-.ios, .md {    
-    page-login {
+.ios, .md {   
+        page-patient-care {
 
-
+        ion-item{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
         p {
             font-size: 0.8em;
             color: #d2d2d2;
@@ -14,16 +17,11 @@
         ion-label, .select-text {
             margin-left: 10px;
         }
- 
+
         .invalid {
             border: 1px solid #ea6153;
         }
 
-        h3 {
-        text-align: center;
-        }
- 
-    }
- 
 
+    }
 }

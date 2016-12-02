@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Patient Care</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <h3>Patient Care for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+  <br>
+  <form [formGroup]="careForm">
+    <ion-list>
+     <ion-item>
+      <ion-label floating>HPI</ion-label>
+      <ion-input formControlName="hpi" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>PMF</ion-label>
+      <ion-input formControlName="pmf" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>SHX</ion-label>
+      <ion-input formControlName="shx" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Allergies</ion-label>
+      <ion-input formControlName="allergies" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Current Medication</ion-label>
+      <ion-input formControlName="current_meds" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Family History</ion-label>
+      <ion-input formControlName="family_history" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Post Surgery History</ion-label>
+      <ion-input formControlName="post_surgery_history" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Current Illness History</ion-label>
+      <ion-input formControlName="current_illness_history" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Diagnosis</ion-label>
+      <ion-textarea formControlName="diagnosis" type="text"></ion-textarea>
+    </ion-item>
+    </ion-list>
+  </form>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-25><button ion-button icon-left color="light" (click)="discard()">Discard</button></ion-col>
+      <ion-col width-25></ion-col>
+      <ion-col width-25></ion-col>
+      <ion-col width-25><button ion-button icon-right (click)="save()">Save</button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+<button ion-button full color="light" (click)="discard()">Discard</button>
+<button ion-button full (click)="save()">Save</button>
+
+</ion-content>
+
+

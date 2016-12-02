@@ -13,7 +13,7 @@ import { NewAdminPage } from '../pages/new-admin/new-admin';
 
 import { StationsPage } from '../pages/stations/stations';
 import { PatientTriagePage } from '../pages/stations/patient-triage/patient-triage';
-
+import { PatientCarePage } from '../pages/stations/patient-care/patient-care';
 import { GetPatients } from '../providers/get-patients';
 
 @NgModule({
@@ -25,7 +25,8 @@ import { GetPatients } from '../providers/get-patients';
     NewPatientPage,
     NewAdminPage,
     StationsPage,
-    PatientTriagePage
+    PatientTriagePage,
+    PatientCarePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -39,7 +40,8 @@ import { GetPatients } from '../providers/get-patients';
     NewPatientPage,
     NewAdminPage,
     StationsPage,
-    PatientTriagePage
+    PatientTriagePage,
+    PatientCarePage
   ],
   providers: [ GetPatients ]
 })

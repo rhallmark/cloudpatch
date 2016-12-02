@@ -1,21 +1,32 @@
 
 export interface Patient {
 
+    // Triage
     _id: number;
     patient_first_name: string;
     patient_last_name: string;
     sex: string;
     blood_type: string;
-    diagnosis: string;
     heart_rate: number;
     temperature: number;
-
     height: number;
     weight: number;
     pulse: number;
     bloodPressureSystolic: number;
     bloodPressureDiastolic: number;
     chiefComplaint: string;
+
+    // Patient Care
+    hpi: string;
+    pmf: string;
+    shx: string;
+    allergies: string;
+    current_meds: string;
+    family_history: string;
+    post_surgery_history: string;
+    current_illness_history: string;
+    diagnosis: string;
+
   
 }
 

@@ -14,3 +14,61 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+/*$blue-background: #f6f6ff;
+$blue-dark: #0034a7;
+$blue-original: #387EF5;
+$blue-background-darker:  darken($blue-background, 5%);*/
+/*$blue-background: red;
+$blue-background-darker:  darken($blue-background, 5%);
+$blue-dark: green;
+$blue-original: yellow;*/
+
+.ios, .md, .wp {   
+    //For Patient Card
+    ion-col{
+        font-size: 18px;
+    }
+
+    #right{
+        text-align: right;
+    }
+
+    .ion-card{
+        background-color: $blue-background-darker;
+    }
+
+
+
+
+    //For Blue Theme
+    ion-input, ion-select, ion-textarea {
+        background-color: $blue-background-darker;
+        padding: 5px 10px;
+    }
+
+    .blue-theme {
+        .toolbar-background {
+            background-color: $blue-original;
+        }
+        ion-content {
+            background-color: $blue-background;
+        }
+        ion-list {
+        .item {
+            background-color: $blue-background;
+            }
+        }
+
+        .listblock{
+            background-color: $blue-background-darker;
+            .item {
+            background-color: $blue-background-darker;
+            }
+        }
+    }
+
+}
+
+
+
+

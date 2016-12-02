@@ -5,6 +5,7 @@ import { GetPatients } from '../../providers/get-patients';
 
 import { Patient } from '../../models/patient';
 import { PatientTriagePage } from './patient-triage/patient-triage';
+import { PatientCarePage } from './patient-care/patient-care';
 
 @Component({
   selector: 'page-stations',
@@ -29,8 +30,12 @@ export class StationsPage {
   
   nav(patient: Patient, location:string){
     if(location == "Triage"){
-      console.log("navigating to navtotriage");
-      this.navToTriage(patient);
+      console.log("navigating to Triage");
+      this.navCtrl.push(PatientTriagePage, {patient});
+    }
+    else if(location == "Patient Care"){
+      console.log("navigating to Patient Care");
+      this.navCtrl.push(PatientCarePage, {patient});
     }
     else{
       console.log("could not navigate to requested page");
@@ -39,7 +44,7 @@ export class StationsPage {
 
 
   navToTriage(patient: Patient) {
-    this.navCtrl.push(PatientTriagePage, {patient});
+    
   }
 
   ionViewDidEnter() {
