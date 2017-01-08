@@ -16,30 +16,34 @@
 
     <!--<ion-icon ios="ios-cloud" md="md-cloud"></ion-icon>-->
   <h3>Administrator Account Login</h3>
+
     <ion-list no-lines>
-        <form [formGroup]="loginForm">
-    
-        <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input formControlName="userName" type="text" [class.invalid]="!loginForm.controls.userName.valid && (loginForm.controls.userName.dirty || submitAttempt)"></ion-input>
-        </ion-item>
 
-        <ion-item *ngIf="!loginForm.controls.userName.valid  && (loginForm.controls.userName.dirty || submitAttempt)">
-            <p>Please enter a Username.</p>
-        </ion-item>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <ion-item>
+              <ion-label floating>Username</ion-label>
+              <!--<ion-input formControlName="userName" type="text"></ion-input>-->
+              <ion-input id="test" formControlName="userName" type="text" [class.invalid]="!loginForm.controls.userName.valid && (loginForm.controls.userName.dirty || submitAttempt)"></ion-input>
+          </ion-item>
 
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input formControlName="password" type="password" [class.invalid]="!loginForm.controls.password.valid && (submitAttempt)"></ion-input>
-        </ion-item>
+          <ion-item *ngIf="!loginForm.controls.userName.valid  && (loginForm.controls.userName.dirty || submitAttempt)">
+              <p>Please enter a Username.</p>
+          </ion-item>
 
-        <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
-            <p>Please enter a Password.</p>
-        </ion-item>
+          <ion-item>
+              <ion-label floating>Password</ion-label>
+              <!--<ion-input formControlName="password" type="text"></ion-input>-->
+              <ion-input formControlName="password" type="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
+          </ion-item>
 
-        </form>
+          <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+              <p>Please enter a Password.</p>
+          </ion-item>
+
+      <button ion-button full color="primary" (click)="login()">Login</button>
+    </form>
 
     </ion-list>
- 
-    <button ion-button full color="primary" (click)="login()">Login</button>
+
+
 </ion-content>

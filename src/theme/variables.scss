@@ -75,7 +75,8 @@ $ionicons-font-path: "../assets/fonts";
 
 // Additional
 
-$blue-background: #EBEBFF;
+//$blue-background: #F5F5FF;
+$blue-background: #FAFAFF;
 $blue-dark: #0034a7;
 $blue-original: #387EF5;
 $blue-background-darker:  darken($blue-background, 2.5%);
@@ -83,3 +84,16 @@ $blue-background-darker:  darken($blue-background, 2.5%);
 $card-ios-background-color: $blue-background-darker;
 $card-md-background-color: $blue-background-darker;
 $card-wp-background-color: $blue-background-darker;
+
+//Fixing Weird Android Highlight Issues
+$text-input-md-show-valid-highlight: false;
+$text-input-md-show-invalid-highlight: false;
+$text-input-md-show-focus-highlight: false;
+
+//Fixing Weird Windows phone border issues
+$text-input-wp-show-valid-highlight: false;
+$text-input-wp-show-invalid-highlight: false;
+$text-input-wp-show-focus-highlight: false;
+$text-input-wp-border-color: $blue-background-darker;
+//$text-input-md-highlight-color-invalid: orange;
+//$text-input-md-margin-right:-20px;

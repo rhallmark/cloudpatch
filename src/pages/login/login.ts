@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OnInit, Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -12,14 +12,24 @@ export class LoginPage {
 
   submitAttempt: boolean = false;
 
-
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+
+    // this.loginForm = formBuilder.group([
+    //   userName: ['',[Validators.required]],
+    //   password: ['', Validators.required]
+    // ]);
 
     this.loginForm = formBuilder.group({
         userName: ['', Validators.compose([Validators.required])],
         password: ['', Validators.compose([Validators.required])]
     });
  
+    // this.loginForm = formBuilder.group({
+    //     userName: [''],
+    //     password: ['']
+    // });
+ 
+
   }
 
  

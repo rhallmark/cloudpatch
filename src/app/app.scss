@@ -23,7 +23,7 @@ $blue-background-darker:  darken($blue-background, 5%);
 $blue-dark: green;
 $blue-original: yellow;*/
 
-.ios, .md, .wp {   
+.ios, .wp {   
     //For Patient Card
     ion-col{
         font-size: 18px;
@@ -39,9 +39,14 @@ $blue-original: yellow;*/
 
 
     //For Blue Theme
-    ion-input, ion-select, ion-textarea {
+    ion-select, ion-textarea {
         background-color: $blue-background-darker;
         //padding: 5px 10px;
+    }
+
+    ion-input {
+        background-color: $blue-background-darker;
+        padding-left: 10px;
     }
 
     .blue-theme {
@@ -68,8 +73,84 @@ $blue-original: yellow;*/
         }
     }
 
+
+
+    .invalid {
+        border: 1px solid red;
+    }
+
+
 }
 
 
+
+//Attempting to fix android issues
+.md {   
+
+    //For Patient Card
+    ion-col{
+        font-size: 18px;
+    }
+
+    #right{
+        text-align: right;
+    }
+
+    .ion-card{
+        background-color: $blue-background-darker;
+    }
+
+
+    //For Blue Theme
+    ion-select, ion-textarea {
+        background-color: $blue-background-darker;
+        //padding: 5px 10px;
+    }
+
+    ion-label {
+        padding-left: 10px;
+    }
+
+    ion-item {
+
+    }
+
+
+    ion-input {
+        padding-top: 5px;
+        padding-left: 10px;
+        background-color:  $blue-background-darker;
+    }
+
+    .blue-theme {
+        .toolbar-background {
+            background-color: $blue-original;
+        }
+        .toolbar-title {
+            color: white;
+        }
+        ion-content {
+            background-color: $blue-background;
+        }
+        ion-list {
+            .item {
+                background-color:  $blue-background;
+            }
+        }
+
+        .listblock{
+            background-color: $blue-background-darker;
+            .item {
+                background-color: $blue-background-darker;
+            }
+        }
+    }
+
+ 
+    .invalid {
+        border: 1px solid red;
+    }
+
+}
 
 
