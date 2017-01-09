@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Patient Lab</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <h3>Lab Info for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+  <br>
+  <form [formGroup]="labForm">
+    <ion-list>
+     <ion-item>
+      <ion-label floating>Glucose</ion-label>
+      <ion-input formControlName="glucose" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Cholesterol</ion-label>
+      <ion-input formControlName="cholesterol" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>LDL</ion-label>
+      <ion-input formControlName="ldl" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>HDL</ion-label>
+      <ion-input formControlName="hdl" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Triglycerides</ion-label>
+      <ion-input formControlName="triglycerides" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Blood (other)</ion-label>
+      <ion-input formControlName="blood_other" type="text"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Urinalysis</ion-label>
+      <ion-input formControlName="urinalysis" type="text"></ion-input>
+    </ion-item>
+    </ion-list>
+  </form>
+
+<br>
+<button ion-button full color="danger" (click)="discard()">Discard</button>
+<br>
+<button ion-button full (click)="save()">Save</button>
+
+</ion-content>
+
+

@@ -6,6 +6,8 @@ import { GetPatients } from '../../providers/get-patients';
 import { Patient } from '../../models/patient';
 import { PatientTriagePage } from './patient-triage/patient-triage';
 import { PatientCarePage } from './patient-care/patient-care';
+import { PatientLabPage } from './patient-lab/patient-lab';
+import { PatientEnmtPage } from './patient-enmt/patient-enmt';
 
 @Component({
   selector: 'page-stations',
@@ -36,6 +38,12 @@ export class StationsPage {
     else if(location == "Patient Care"){
       console.log("navigating to Patient Care");
       this.navCtrl.push(PatientCarePage, {patient});
+    }
+    else if(location == "Lab"){
+      this.navCtrl.push(PatientLabPage, {patient});
+    }
+    else if(location == "Enmt"){
+      this.navCtrl.push(PatientEnmtPage, {patient});
     }
     else{
       console.log("could not navigate to requested page");

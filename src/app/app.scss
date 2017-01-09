@@ -44,6 +44,14 @@ $blue-original: yellow;*/
         //padding: 5px 10px;
     }
 
+    ion-label {
+        padding-left: 10px;
+    }
+
+    ion-item {
+        padding-bottom: 10px;
+    }
+    
     ion-input {
         background-color: $blue-background-darker;
         padding-left: 10px;
@@ -112,9 +120,8 @@ $blue-original: yellow;*/
     }
 
     ion-item {
-
+        padding-bottom: 10px;
     }
-
 
     ion-input {
         padding-top: 5px;

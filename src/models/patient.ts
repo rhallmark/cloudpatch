@@ -27,7 +27,25 @@ export interface Patient {
     current_illness_history: string;
     diagnosis: string;
 
-  
+    // Patient Lab
+    glucose: string;
+    cholesterol: string;
+    ldl: string;
+    hdl: string;
+    triglycerides: string;
+    blood_other: string;
+    urinalysis: string;
+
+    // Patient enmt
+    auditory: string;
+    tympanic: string;
+    nasal_cavity: string;
+    lips_mouth: string;
+    teeth: string;
+    gums: string;
+    throat_tonsils: string;
+    enmt_other: string;
+
 }
 
 // User model based on the structure of github api at

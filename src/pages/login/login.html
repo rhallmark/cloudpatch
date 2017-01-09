@@ -39,6 +39,9 @@
           <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
               <p>Please enter a Password.</p>
           </ion-item>
+          
+          <br>
+          <br>
 
       <button ion-button full color="primary" (click)="login()">Login</button>
     </form>
