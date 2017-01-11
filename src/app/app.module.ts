@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { FormBuilder, Validators } from "@angular/forms";
-//import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-//import { ItemDetailsPage } from '../pages/item-details/item-details';
-//import { ListPage } from '../pages/list/list';
+
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { SelectPatientPage } from '../pages/select-patient/select-patient';
@@ -17,6 +15,15 @@ import { PatientTriagePage } from '../pages/stations/patient-triage/patient-tria
 import { PatientCarePage } from '../pages/stations/patient-care/patient-care';
 import { PatientLabPage } from '../pages/stations/patient-lab/patient-lab';
 import { PatientEnmtPage } from '../pages/stations/patient-enmt/patient-enmt';
+import { PatientBackPage } from '../pages/stations/patient-back/patient-back';
+import { PatientOpticalPage } from '../pages/stations/patient-optical/patient-optical';
+import { PatientRespiratoryPage } from '../pages/stations/patient-respiratory/patient-respiratory';
+import { PatientCardiovascularPage } from '../pages/stations/patient-cardiovascular/patient-cardiovascular';
+import { PatientGastrointestinalPage } from '../pages/stations/patient-gastrointestinal/patient-gastrointestinal';
+import { PatientMusculoskeletalPage } from '../pages/stations/patient-musculoskeletal/patient-musculoskeletal';
+import { PatientPsychiatricPage } from '../pages/stations/patient-psychiatric/patient-psychiatric';
+import { PatientWomenPage } from '../pages/stations/patient-women-health/patient-women';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +37,15 @@ import { PatientEnmtPage } from '../pages/stations/patient-enmt/patient-enmt';
     PatientTriagePage,
     PatientCarePage,
     PatientLabPage,
-    PatientEnmtPage
+    PatientEnmtPage,
+    PatientBackPage,
+    PatientOpticalPage,
+    PatientRespiratoryPage,
+    PatientCardiovascularPage,
+    PatientGastrointestinalPage,
+    PatientMusculoskeletalPage,
+    PatientPsychiatricPage,
+    PatientWomenPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -47,7 +62,15 @@ import { PatientEnmtPage } from '../pages/stations/patient-enmt/patient-enmt';
     PatientTriagePage,
     PatientCarePage,
     PatientLabPage,
-    PatientEnmtPage
+    PatientEnmtPage,
+    PatientBackPage,
+    PatientOpticalPage,
+    PatientRespiratoryPage,
+    PatientCardiovascularPage,
+    PatientGastrointestinalPage,
+    PatientMusculoskeletalPage,
+    PatientPsychiatricPage,
+    PatientWomenPage
   ],
   providers: [ GetPatients ]
 })

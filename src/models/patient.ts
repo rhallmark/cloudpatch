@@ -1,4 +1,3 @@
-
 export interface Patient {
 
     // Triage
@@ -46,58 +45,50 @@ export interface Patient {
     throat_tonsils: string;
     enmt_other: string;
 
+    // Patient Back
+    spine: string;
+    u_back: string;
+    m_back: string;
+    l_back: string;
+    neck: string;
+    neck_rom: string;
+    back_other: string;
+
+    // Patient Optical
+    eyelids: string;
+    conjunctive: string;
+    sciera: string;
+    fundus: string;
+    optical_other: string;
+
+    // Patient Respiratory
+    resp_effort: string;
+    auscultation: string;
+    respiratory_other: string;
+
+    // Patient Cardiovascular
+    rythm: string;
+    heart_sounds: string;
+    abnormal_heart_sounds: string;
+    cardiovascular_other: string;
+
+    // Patient Gstrointestinal
+    abdomen: string;
+    bowels_luq: string;
+    gastrointestinal_other: string;
+
+    // Patient Musculoskeletal
+    musculoskeletal_other: string;
+    //?
+
+    // Patient Psychiatric
+    judgement: string;
+    orientation_AO: string;
+    psychiatric_other: string;
+
+
+    // Women's Health
+    mammogram: string;
+    women_other: string;
+
 }
-
-// User model based on the structure of github api at
-// https://api.github.com/users/{username}
-// export interface Patient {
-//   login: string;
-//   avatar_url: string;
-//   public_repos: number;
-//   public_gists: number;
-//   followers: number;
-//   following: number;
-// }
-
-
-// User model based on the required info for creating a new Patient
-
-
-// Other stuff
-
-// **PatientCare**
-// HPI: string;
-// PMF: string;
-// SHX: string;
-// Allergies: string;
-// currentMedication: string;
-// FamilyHistory: string;
-// PostSurgeryHistory: string;
-// CurrentIllnessHistory: string;
-// diagnosis: string;
-
-
-// **Lab**
-// glucose: string;
-// cholesterol: string;
-// LDL: string;
-// HDL: string;
-// trigycerides: string;
-// blood_other: string;
-// urinalysis: string;
-
-// **EMNT**
-// ExternalAuditory
-//     normal|cerumen|Foreign Body|Other
-// TympanicMembrance
-//     normal|bulging|dull|erythema|fluid|other
-// NasalCavity
-//     normal|erythema|pale|boggy|lesion/polyp|other
-// LipsAndMouth
-//     normal|other
-// teeth
-//     normal|dentures|missing|other
-// Gums
-//     normal|gingival hypertrophy|other
-// ThroatAndTonsils
-//     normal|other

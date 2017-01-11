@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Patient Musculoskeletal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <h3>Musculoskeletal Info for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+  <br>
+  <form [formGroup]="musculoskeletalForm">
+    <ion-list>
+    <br>
+    <h6 style="position:relative;margin-bottom:-10px;z-index:5;">Please indicate Musculoskeletal notes below:</h6>
+    <ion-item style="position:relative;z-index:4;">
+      <ion-label floating>Additional Notes</ion-label>
+      <ion-textarea formControlName="musculoskeletal_other" type="text"></ion-textarea>
+    </ion-item>
+    </ion-list>
+  </form>
+
+<br>
+<button ion-button full color="danger" (click)="discard()">Discard</button>
+<br>
+<button ion-button full (click)="save()">Save</button>
+
+</ion-content>
+
+

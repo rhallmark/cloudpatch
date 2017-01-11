@@ -41,7 +41,11 @@ $blue-original: yellow;*/
     //For Blue Theme
     ion-select, ion-textarea {
         background-color: $blue-background-darker;
-        //padding: 5px 10px;
+        padding-left: 10px;
+    }
+
+    .select-text {
+        padding-left: 10px;
     }
 
     ion-label {
@@ -51,7 +55,7 @@ $blue-original: yellow;*/
     ion-item {
         padding-bottom: 10px;
     }
-    
+
     ion-input {
         background-color: $blue-background-darker;
         padding-left: 10px;
@@ -112,7 +116,7 @@ $blue-original: yellow;*/
     //For Blue Theme
     ion-select, ion-textarea {
         background-color: $blue-background-darker;
-        //padding: 5px 10px;
+        padding-left: 10px;
     }
 
     ion-label {
@@ -127,6 +131,10 @@ $blue-original: yellow;*/
         padding-top: 5px;
         padding-left: 10px;
         background-color:  $blue-background-darker;
+    }
+
+    .select-text {
+        padding-left: 10px;
     }
 
     .blue-theme {

@@ -8,6 +8,16 @@ import { PatientTriagePage } from './patient-triage/patient-triage';
 import { PatientCarePage } from './patient-care/patient-care';
 import { PatientLabPage } from './patient-lab/patient-lab';
 import { PatientEnmtPage } from './patient-enmt/patient-enmt';
+import { PatientBackPage } from './patient-back/patient-back';
+import { PatientOpticalPage } from './patient-optical/patient-optical';
+import { PatientRespiratoryPage } from './patient-respiratory/patient-respiratory';
+import { PatientCardiovascularPage } from './patient-cardiovascular/patient-cardiovascular';
+import { PatientGastrointestinalPage } from './patient-gastrointestinal/patient-gastrointestinal';
+import { PatientMusculoskeletalPage } from './patient-musculoskeletal/patient-musculoskeletal';
+import { PatientPsychiatricPage } from './patient-psychiatric/patient-psychiatric';
+import { PatientWomenPage } from './patient-women-health/patient-women';
+
+
 
 @Component({
   selector: 'page-stations',
@@ -45,8 +55,32 @@ export class StationsPage {
     else if(location == "Enmt"){
       this.navCtrl.push(PatientEnmtPage, {patient});
     }
+    else if(location == "Back"){
+      this.navCtrl.push(PatientBackPage, {patient});
+    }
+    else if(location == "Optical"){
+      this.navCtrl.push(PatientOpticalPage, {patient});
+    }
+    else if(location == "Respiratory"){
+      this.navCtrl.push(PatientRespiratoryPage, {patient});
+    }
+    else if(location == "Cardiovascular"){
+      this.navCtrl.push(PatientCardiovascularPage, {patient});
+    }
+    else if(location == "Gastrointestinal"){
+      this.navCtrl.push(PatientGastrointestinalPage, {patient});
+    }
+    else if(location == "Musculoskeletal"){
+      this.navCtrl.push(PatientMusculoskeletalPage, {patient});
+    }
+    else if(location == "Psychriatric"){
+      this.navCtrl.push(PatientPsychiatricPage, {patient});
+    }
+    else if(location == "Women's Health"){
+      this.navCtrl.push(PatientWomenPage, {patient});
+    }
     else{
-      console.log("could not navigate to requested page");
+      console.log("could not navigate to requested page: "+location);
     }
   }
 

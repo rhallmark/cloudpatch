@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Patient ENMT</ion-title>
+    <ion-title>Patient Back</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding >
 
-  <h3>ENMT Info for Patient:</h3>
+  <h3>Back Info for Patient:</h3>
   <ion-card>
     <ion-grid>
       <ion-card-header>
@@ -22,66 +22,61 @@
     </ion-grid>
   </ion-card>
   <br>
-  <form [formGroup]="enmtForm">
+  <form [formGroup]="backForm">
     <ion-list>
     <ion-item>
-        <ion-label floating>External Auditory</ion-label>
-        <ion-select formControlName="auditory">
+        <ion-label floating>Spine</ion-label>
+        <ion-select formControlName="spine">
             <ion-option value="Normal" >Normal</ion-option>
-            <ion-option value="Cerumen" >Cerumen</ion-option>
-            <ion-option value="Foreign Body" >Foreign Body</ion-option>
+            <ion-option value="Lordosis" >Lordosis</ion-option>
+            <ion-option value="Kyphosis" >Kyphosis</ion-option>
+            <ion-option value="Scoliosis" >Scoliosis</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
     </ion-item>
      <ion-item>
-        <ion-label floating>Tympanic Membrane</ion-label>
-        <ion-select formControlName="tympanic">
+        <ion-label floating>Upper Back</ion-label>
+        <ion-select formControlName="u_back">
             <ion-option value="Normal" >Normal</ion-option>
-            <ion-option value="Bulging" >Bulging</ion-option>
-            <ion-option value="Dull" >Dull</ion-option>
-            <ion-option value="Erythema" >Erythema</ion-option>
-            <ion-option value="Fluid" >Fluid</ion-option>
+            <ion-option value="Sore" >Sore</ion-option>
+            <ion-option value="Numb" >Numb</ion-option>
+            <ion-option value="Injured" >Injured</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label floating>Nasal Cavity</ion-label>
-        <ion-select formControlName="nasal_cavity">
+        <ion-label floating>Middle Back</ion-label>
+        <ion-select formControlName="m_back">
             <ion-option value="Normal" >Normal</ion-option>
-            <ion-option value="Erythema" >Erythema</ion-option>
-            <ion-option value="Pale" >Pale</ion-option>
-            <ion-option value="Boggy" >Boggy</ion-option>
-            <ion-option value="Lesion/Polyp" >Lesion/Polyp</ion-option>
+            <ion-option value="Sore" >Sore</ion-option>
+            <ion-option value="Numb" >Numb</ion-option>
+            <ion-option value="Injured" >Injured</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label floating>Lips And Mouth</ion-label>
-        <ion-select formControlName="lips_mouth">
+        <ion-label floating>Lower Back</ion-label>
+        <ion-select formControlName="l_back">
             <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Sore" >Sore</ion-option>
+            <ion-option value="Numb" >Numb</ion-option>
+            <ion-option value="Injured" >Injured</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label floating>Teeth</ion-label>
-        <ion-select formControlName="teeth">
+        <ion-label floating>Neck Muscles</ion-label>
+        <ion-select formControlName="neck">
             <ion-option value="Normal" >Normal</ion-option>
-            <ion-option value="Dentures" >Dentures</ion-option>
-            <ion-option value="Teeth Missing" >Teeth Missing</ion-option>
+            <ion-option value="Spasm" >Spasm</ion-option>
+            <ion-option value="Tinder" >Tinder</ion-option>
+            <ion-option value="Trigger Point" >Trigger Point</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label floating>Gums</ion-label>
-        <ion-select formControlName="gums">
-            <ion-option value="Normal" >Normal</ion-option>
-            <ion-option value="Cerumen" >Gingival Hypertrophy</ion-option>
-            <ion-option value="Other" >Other</ion-option>
-        </ion-select>
-    </ion-item>
-    <ion-item>
-        <ion-label floating>Throat And Tonsils</ion-label>
-        <ion-select formControlName="throat_tonsils">
+        <ion-label floating>Neck Range Of Motion</ion-label>
+        <ion-select formControlName="neck_rom">
             <ion-option value="Normal" >Normal</ion-option>
             <ion-option value="Other" >Other</ion-option>
         </ion-select>
@@ -90,7 +85,7 @@
     <h6 style="position:relative;margin-bottom:-10px;z-index:5;">If other is selected, please indicate below:</h6>
     <ion-item style="position:relative;z-index:4;">
       <ion-label floating>Additional Notes</ion-label>
-      <ion-textarea formControlName="enmt_other" type="text"></ion-textarea>
+      <ion-textarea formControlName="back_other" type="text"></ion-textarea>
     </ion-item>
     </ion-list>
   </form>

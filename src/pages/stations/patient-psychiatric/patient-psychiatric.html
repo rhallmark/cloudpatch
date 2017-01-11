@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Patient Psychiatric</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <h3>Psychiatric Info for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+  <br>
+  <form [formGroup]="psychiatricForm">
+    <ion-list>
+    <ion-item>
+        <ion-label floating>Judgement</ion-label>
+        <ion-select formControlName="judgement">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+     <ion-item>
+        <ion-label floating>Orientation A/O</ion-label>
+        <ion-select formControlName="orientation_AO">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="x3" >x3</ion-option>
+            <ion-option value="x4" >x4</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+    <br>
+    <h6 style="position:relative;margin-bottom:-10px;z-index:5;">If other is selected, please indicate below:</h6>
+    <ion-item style="position:relative;z-index:4;">
+      <ion-label floating>Additional Notes</ion-label>
+      <ion-textarea formControlName="psychiatric_other" type="text"></ion-textarea>
+    </ion-item>
+    </ion-list>
+  </form>
+
+<br>
+<button ion-button full color="danger" (click)="discard()">Discard</button>
+<br>
+<button ion-button full (click)="save()">Save</button>
+
+</ion-content>
+
+

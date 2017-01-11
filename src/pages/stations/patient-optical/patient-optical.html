@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Patient Optical</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <h3>Optical Info for Patient:</h3>
+  <ion-card>
+    <ion-grid>
+      <ion-card-header>
+          <ion-row>
+            <ion-col width-20>ID</ion-col>
+            <ion-col id="right" width-80><ion-badge>{{patient._id}}</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-20>Name</ion-col>
+            <ion-col id="right" width-80>{{patient.patient_first_name}} {{patient.patient_last_name}}</ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-grid>
+  </ion-card>
+  <br>
+  <form [formGroup]="opticalForm">
+    <ion-list>
+    <ion-item>
+        <ion-label floating>Eyelids</ion-label>
+        <ion-select formControlName="eyelids">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Edema" >Edema</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+     <ion-item>
+        <ion-label floating>Conjunctive</ion-label>
+        <ion-select formControlName="conjunctive">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Injected" >Injected</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Sciera</ion-label>
+        <ion-select formControlName="sciera">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Jausdiced" >Jausdiced</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Fundus</ion-label>
+        <ion-select formControlName="fundus">
+            <ion-option value="Normal" >Normal</ion-option>
+            <ion-option value="Other" >Other</ion-option>
+        </ion-select>
+    </ion-item>
+    <br>
+    <h6 style="position:relative;margin-bottom:-10px;z-index:5;">If other is selected, please indicate below:</h6>
+    <ion-item style="position:relative;z-index:4;">
+      <ion-label floating>Additional Notes</ion-label>
+      <ion-textarea formControlName="optical_other" type="text"></ion-textarea>
+    </ion-item>
+    </ion-list>
+  </form>
+
+<br>
+<button ion-button full color="danger" (click)="discard()">Discard</button>
+<br>
+<button ion-button full (click)="save()">Save</button>
+
+</ion-content>
+
+
