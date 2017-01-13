@@ -1,6 +1,9 @@
 .ios, .md, .wp {    
     page-login {
 
+        ion-item{
+            padding-bottom: 0px !important;
+        }
 
         p {
             font-size: 0.8em;
@@ -10,13 +13,28 @@
         .swiper-slide {
             display: block;
         }
- 
-        ion-label, .select-text {
-            margin-left: 10px;
+
+        ion-label {
+            margin-left: 3% !important;
+            //margin-top: 10% !important;
+        }
+
+        .text-input {
+            margin-top: 5px;
+        }
+
+        ion-input, .select-text  {
+            width: 95% !important;
         }
 
         h3 {
             text-align: center;
+            //margin-bottom: -10px;
+        }
+
+        .loginButton {
+            width: 90%;
+            margin-left: 5%;
         }
  
     }

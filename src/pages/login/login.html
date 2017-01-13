@@ -9,7 +9,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <br>
 
   <img src="assets/images/cloudpatch.png" style="text-align:center;display:block;margin:auto;">
@@ -41,9 +41,9 @@
           </ion-item>
           
           <br>
-          <br>
-
-      <button ion-button full color="primary" (click)="login()">Login</button>
+        <div class="loginButton">
+          <button full ion-button color="primary" (click)="login()">Login</button>
+        </div>
     </form>
 
     </ion-list>
