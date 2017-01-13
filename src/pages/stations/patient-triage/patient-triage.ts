@@ -48,7 +48,6 @@ export class PatientTriagePage {
       console.log("Form Vals");
       console.log(this.triageForm.value);
       console.log("Patient ID "+String(this.patient._id) );
-
       this.getPatientService.updatePatient(this.triageForm.value, String(this.patient._id)).subscribe( u_patient => {
         console.log("updated pateient:");
         console.log(u_patient);

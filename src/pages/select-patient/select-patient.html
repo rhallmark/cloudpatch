@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar></ion-searchbar>
+  <ion-searchbar (input)="search($event)"></ion-searchbar>
   <h3>Patients</h3>
   <ion-list>
     <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToStations(patient)">

@@ -15,14 +15,41 @@ import { GetPatients } from '../../providers/get-patients';
 export class SelectPatientPage {
 
   patients: Patient[];
+  originalPatients: Patient[];
 
   constructor(public navCtrl: NavController, private getPatientService: GetPatients) {
     getPatientService.getPatientList().subscribe( patients =>{
       this.patients = patients;
-      //console.log(patients);
+      this.originalPatients = patients;
     })
 
   }
+
+  // ionViewWillLeave(){
+  //   this.patients=this.originalPatients;
+  // }
+
+
+  search(searchEvent){
+
+      let searchterm: string = searchEvent.target.value;
+
+      //only perform searches on terms greater than length 2
+      if(searchterm.trim() == '' || searchterm.trim().length < 2){
+        //load original users
+        this.patients = this.originalPatients;
+      }
+      else {
+        //get newly searched users
+        var obj = { "searchTerm":searchterm};
+        console.log(obj);
+        var testSearch = this.getPatientService.searchPatients(obj).subscribe(updatedList => {
+          console.log(updatedList);
+          this.patients = updatedList;
+        })
+      }
+  }
+
 
   navToStations(patient: Patient) {
     this.navCtrl.push(StationsPage, {patient});

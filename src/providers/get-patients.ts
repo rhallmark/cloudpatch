@@ -24,10 +24,16 @@ export class GetPatients {
       .map(res => <Patient[]>res.json());
   }
 
-
   getPatient(patientID: string): Observable<Patient> {
     return this.http.get(`${this.apiUrl}/patient/${patientID}`)
       .map(res => <Patient>res.json());
+  }
+
+  //Search For patients
+  searchPatients(searchTerm): Observable<Patient[]> {
+    return this.http.post(`${this.apiUrl}/search`, searchTerm)
+      .map(res => <Patient[]>res.json());
+      //no .items?
   }
 
   updatePatient(patientFormData, patientID: string): Observable<Patient> {
