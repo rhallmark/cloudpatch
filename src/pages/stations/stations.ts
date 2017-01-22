@@ -26,9 +26,9 @@ import { PatientWomenPage } from './patient-women-health/patient-women';
 export class StationsPage {
 
   stations_M: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
-                        "Gastrointestinal", "Musculoskeletal", "Psychriatric"];
+                        "Gastrointestinal", "Musculoskeletal", "Psychiatric"];
   stations_F: string[] = ["Triage", "Patient Care", "Lab", "Enmt", "Back", "Optical", "Respiratory", "Cardiovascular",
-                        "Gastrointestinal", "Musculoskeletal", "Psychriatric", "Women's Health"];
+                        "Gastrointestinal", "Musculoskeletal", "Psychiatric", "Women's Health"];
 
   stations: string[] = this.stations_F;
 
@@ -73,7 +73,7 @@ export class StationsPage {
     else if(location == "Musculoskeletal"){
       this.navCtrl.push(PatientMusculoskeletalPage, {patient});
     }
-    else if(location == "Psychriatric"){
+    else if(location == "Psychiatric"){
       this.navCtrl.push(PatientPsychiatricPage, {patient});
     }
     else if(location == "Women's Health"){

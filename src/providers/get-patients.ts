@@ -6,15 +6,13 @@ import 'rxjs/add/operator/map';
 
 import { Patient } from '../models/patient';
 
-//@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @Injectable()
 export class GetPatients {
 
-  // apiUrl: string = 'https://api.github.com';
   apiUrl: string = 'http://159.203.167.54';
 
   constructor(public http: Http) {
-    console.log('Hello GetPatients Provider');
+
   }
 
 

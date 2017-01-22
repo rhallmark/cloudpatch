@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 import { Patient } from '../../models/patient';
 import { GetPatients } from '../../providers/get-patients';
@@ -24,7 +24,7 @@ export class NewPatientPage {
   patient_first_name: string;
   patient_last_name: string;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, private getPatientService: GetPatients) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, private getPatientService: GetPatients, public alertcontroller: AlertController) {
 
     this.newPatientForm = formBuilder.group({
       // need to fix all the name validators
@@ -48,7 +48,14 @@ export class NewPatientPage {
         console.log("new pateient with id:");
         console.log(patient_id);
 
-        // Make it to where you don't have to go find the freaking patient
+        var alert = this.alertcontroller.create({
+          title: "Success!",
+          subTitle: "Patient Created.",
+          buttons: ["ok"]
+        });
+        alert.present();
+
+        // Nav to patient list
         this.navToStations(String(patient_id), this.patient_first_name);
       })
 

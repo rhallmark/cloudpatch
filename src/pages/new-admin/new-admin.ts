@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
+import { AuthService } from '../../providers/authservice';
 
 // Validators
 import { UsernameValidator } from  '../validators/v_username';
@@ -16,7 +17,7 @@ export class NewAdminPage {
   submitAttempt: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService, public alertcontroller: AlertController) {
 
     this.signUpForm = formBuilder.group({
         firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -30,13 +31,24 @@ export class NewAdminPage {
  
   }
 
- 
+
     save(){
       this.submitAttempt = true;
+      let newUser = this.signUpForm.value;
+      
+      if(newUser){
 
-      if(this.signUpForm.valid){
-        console.log("Success");
-        console.log(this.signUpForm.value);
+        this.authservice.adduser(newUser).then(data => {
+          if(data){
+            var alert = this.alertcontroller.create({
+              title: "Success!",
+              subTitle: "User Created.",
+              buttons: ["ok"]
+            });
+            alert.present();
+
+          }
+        })
       }
     }
  
