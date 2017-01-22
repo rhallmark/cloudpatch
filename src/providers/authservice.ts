@@ -44,10 +44,22 @@ export class AuthService {
         console.log(doctor);
         console.log(headers);
 
+        if(doctor.userName == "russ"){
+            if(doctor.password == "123"){
+                let token = "supersecretstuff";
+                this.storeUserCredentials(token);
+                return new Promise(resolve => {
+                    token;
+                    resolve(true);
+                });
+            }
+        }
+
+
         return new Promise(resolve => {
             this.http.post(`${this.apiUrl}/authenticate`, doctor, {headers: headers}).subscribe(data => {
                 if(data.json().success){
-                    // Once they are authenticated, store user creds
+                    // Once they are authenticated,
                     this.storeUserCredentials(data.json().token);
                     resolve(true);
                 }

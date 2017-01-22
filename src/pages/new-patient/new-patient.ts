@@ -78,7 +78,7 @@ export class NewPatientPage {
   //would like to nav directly to that patients details. Could pass a string and
   //test to see if string exists on selectpatientpage, but seems like theres a better way
   navToStations(_id: string, patient_first_name: string) {
-    this.navCtrl.setRoot(SelectPatientPage)
+    this.navCtrl.setRoot(SelectPatientPage);
     //.then(this.navCtrl.push(StationsPage, {_id, patient_first_name}));
     // this.navCtrl.pop();
     // this.navCtrl.push(StationsPage, {_id, patient_first_name});

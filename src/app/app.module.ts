@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { FormBuilder, Validators } from "@angular/forms";
+import { NavController, AlertController } from 'ionic-angular';
 
+import { DrProfile } from '../pages/dr-profile/dr-profile';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { SelectPatientPage } from '../pages/select-patient/select-patient';
@@ -49,10 +51,11 @@ import { AuthService } from '../providers/authservice';
     PatientGastrointestinalPage,
     PatientMusculoskeletalPage,
     PatientPsychiatricPage,
-    PatientWomenPage
+    PatientWomenPage,
+    DrProfile,
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp), 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -74,7 +77,8 @@ import { AuthService } from '../providers/authservice';
     PatientGastrointestinalPage,
     PatientMusculoskeletalPage,
     PatientPsychiatricPage,
-    PatientWomenPage
+    PatientWomenPage,
+    DrProfile
   ],
   providers: [ GetPatients, AuthService ]
 })
