@@ -38,11 +38,11 @@ export class AuthService {
     
     authenticate(doctor) {
         //var creds = "name=" + user.userName + "&password=" + user.password;
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        //var headers = new Headers();
+        //headers.append('Content-Type', 'application/x-www-form-urlencoded');
         
         console.log(doctor);
-        console.log(headers);
+        //console.log(headers);
 
         // if(doctor.userName == "russ"){
         //     if(doctor.password == "123"){
@@ -57,7 +57,7 @@ export class AuthService {
 
 
         return new Promise(resolve => {
-            this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {
+            this.http.post(`${this.apiUrl}/auth`, doctor).subscribe(data => {
                 if(data.json().success){
                     // Once they are authenticated,
                     this.storeUserCredentials(data.json().token);

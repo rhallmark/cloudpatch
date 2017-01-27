@@ -41,6 +41,7 @@ export class LoginPage {
 
  
   login(){
+    console.log("LOGIN CALLED");
     this.submitAttempt = true;
 
     // If the login form is valid (need to check there is info in both)
