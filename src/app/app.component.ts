@@ -52,7 +52,6 @@ export class MyApp {
     // This should load auth token, create local variable if it exists
     this.authservice.loadUserCredentials();
     let AuthToken = this.authservice.AuthToken;
-    console.log(AuthToken);
 
     if(AuthToken){
       this.rootPage = DrProfile;

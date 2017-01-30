@@ -42,11 +42,9 @@ export class StationsPage {
   
   nav(patient: Patient, location:string){
     if(location == "Triage"){
-      console.log("navigating to Triage");
       this.navCtrl.push(PatientTriagePage, {patient});
     }
     else if(location == "Patient Care"){
-      console.log("navigating to Patient Care");
       this.navCtrl.push(PatientCarePage, {patient});
     }
     else if(location == "Lab"){

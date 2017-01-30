@@ -38,11 +38,22 @@ export class AuthService {
     
     authenticate(doctor) {
         //var creds = "name=" + user.userName + "&password=" + user.password;
-        //var headers = new Headers();
-        //headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
         
         console.log(doctor);
-        //console.log(headers);
+        console.log(headers);
+
+        return new Promise(resolve => {
+            this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {
+                console.log(data)
+                if(data){
+                    this.storeUserCredentials(data.json().access_token);
+                    resolve(true);
+                }
+                resolve(false);
+            });
+        });
 
         // if(doctor.userName == "russ"){
         //     if(doctor.password == "123"){
@@ -56,17 +67,19 @@ export class AuthService {
         // }
 
 
-        return new Promise(resolve => {
-            this.http.post(`${this.apiUrl}/auth`, doctor).subscribe(data => {
-                if(data.json().success){
-                    // Once they are authenticated,
-                    this.storeUserCredentials(data.json().token);
-                    resolve(true);
-                }
-                else
-                    resolve(false);
-            });
-        });
+        // return new Promise(resolve => {
+        //     this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {
+        //         console.log(data)
+        //         if(data.json().success){
+        //             console.log(data);
+        //             // Once they are authenticated,
+        //             this.storeUserCredentials(data.json().access_token);
+        //             resolve(true);
+        //         }
+        //         else
+        //             resolve(false);
+        //     });
+        // });
     }
 
     adduser(doctor) {

@@ -29,7 +29,7 @@ export class LoginPage {
     // ]);
 
     this.loginForm = formBuilder.group({
-        userName: ['', Validators.compose([Validators.required])],
+        username: ['', Validators.compose([Validators.required])],
         password: ['', Validators.compose([Validators.required])]
     });
  
@@ -41,7 +41,6 @@ export class LoginPage {
 
  
   login(){
-    console.log("LOGIN CALLED");
     this.submitAttempt = true;
 
     // If the login form is valid (need to check there is info in both)

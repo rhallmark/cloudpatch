@@ -23,10 +23,10 @@
           <ion-item>
               <ion-label floating>Username</ion-label>
               <!--<ion-input formControlName="userName" type="text"></ion-input>-->
-              <ion-input id="test" formControlName="userName" type="text" [class.invalid]="!loginForm.controls.userName.valid && (loginForm.controls.userName.dirty || submitAttempt)"></ion-input>
+              <ion-input id="test" formControlName="username" type="text" [class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty || submitAttempt)"></ion-input>
           </ion-item>
 
-          <ion-item *ngIf="!loginForm.controls.userName.valid  && (loginForm.controls.userName.dirty || submitAttempt)">
+          <ion-item *ngIf="!loginForm.controls.username.valid  && (loginForm.controls.username.dirty || submitAttempt)">
               <p>Please enter a Username.</p>
           </ion-item>
 

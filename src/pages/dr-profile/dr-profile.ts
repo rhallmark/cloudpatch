@@ -18,7 +18,7 @@ export class DrProfile {
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController) {}
 
   ionViewDidLoad() {
-    console.log('Logged In!');
+
   }
 
 
