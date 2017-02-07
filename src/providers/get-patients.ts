@@ -11,8 +11,8 @@ import { Patient } from '../models/patient';
 @Injectable()
 export class GetPatients {
 
-  //apiUrl: string = 'http://159.203.167.54';
-  apiUrl: string = 'http://hallmark.cloud';
+  apiUrl: string = 'http://159.203.167.54';
+  //apiUrl: string = 'http://hallmark.cloud';
   AuthToken;
   headers;
 
