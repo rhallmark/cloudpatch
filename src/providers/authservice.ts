@@ -7,8 +7,9 @@ export class AuthService {
     isLoggedin: boolean;
     AuthToken;
 
-    apiUrl: string = 'http://159.203.167.54';
-
+    //apiUrl: string = 'http://159.203.167.54';
+    apiUrl: string = 'http://hallmark.cloud';
+    
     constructor(public http: Http) {
         this.http = http;
         this.isLoggedin = false;
