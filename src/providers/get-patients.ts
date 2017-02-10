@@ -11,7 +11,7 @@ import { Patient } from '../models/patient';
 @Injectable()
 export class GetPatients {
 
-  apiUrl: string = 'http://159.203.167.54';
+  apiUrl: string = 'http://159.203.167.54:5000';
   //apiUrl: string = 'http://hallmark.cloud';
   AuthToken;
   headers;
@@ -59,31 +59,31 @@ export class GetPatients {
   //Load all 'patients'
   getPatientList(): Observable<Patient[]> {
     //console.log(this.AuthToken);
-    console.log(`${this.apiUrl}/patientList`, this.headers);
+    //console.log(`${this.apiUrl}/patientList`, this.headers);
     return this.http.get(`${this.apiUrl}/patientList`, this.headers)
       .map(res => <Patient[]>res.json());
   }
 
 
   getPatient(patientID: string): Observable<Patient> {
-    return this.http.get(`${this.apiUrl}/patient/${patientID}`)
+    return this.http.get(`${this.apiUrl}/patient/${patientID}`, this.headers)
       .map(res => <Patient>res.json());
   }
 
   //Search For patients
   searchPatients(searchTerm): Observable<Patient[]> {
-    return this.http.post(`${this.apiUrl}/search`, searchTerm)
+    return this.http.post(`${this.apiUrl}/search`, searchTerm, this.headers)
       .map(res => <Patient[]>res.json());
       //no .items?
   }
 
   updatePatient(patientFormData, patientID: string): Observable<Patient> {
-    return this.http.post(`${this.apiUrl}/patient/${patientID}`, patientFormData)
+    return this.http.post(`${this.apiUrl}/patient/${patientID}`, patientFormData, this.headers)
       .map(res => <Patient>res.json());
   }
 
   newPatient(patient): Observable<number> {
-    return this.http.post(`${this.apiUrl}/newPatient`, patient)
+    return this.http.post(`${this.apiUrl}/newPatient`, patient, this.headers)
       .map(res => <number>res.json());
   }
 
