@@ -40,6 +40,14 @@ export class MyApp {
       { title: 'About CloudPatch', component: AboutPage }
     ];
 
+  pages_all: Array<{title: string, component: any}> = [
+      { title: 'Login', component: LoginPage },
+      { title: 'About CloudPatch', component: AboutPage },
+      { title: 'Select Patient', component: SelectPatientPage },
+      { title: 'New Patient', component: NewPatientPage },
+      { title: 'New Administrator', component: NewAdminPage },
+      { title: 'My Profile', component: DrProfile }
+    ];
 
   constructor(public platform: Platform, public menu: MenuController, public authservice: AuthService, public alertcontroller: AlertController) {
     this.initializeApp();
@@ -55,10 +63,10 @@ export class MyApp {
 
     if(AuthToken){
       this.rootPage = DrProfile;
-      this.pages = this.pages_auth;
+      this.pages = this.pages_all;
     }
     else{
-      this.pages = this.pages_unauth;
+      this.pages = this.pages_all;
     }
 
   }

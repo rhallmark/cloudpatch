@@ -17,7 +17,8 @@ export class NewAdminPage {
   submitAttempt: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService, public alertcontroller: AlertController) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, 
+              public authservice: AuthService, public alertcontroller: AlertController) {
 
     this.signUpForm = formBuilder.group({
         firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -30,6 +31,22 @@ export class NewAdminPage {
     });
  
   }
+
+
+  ionViewCanEnter(){
+    if(!this.authservice.AuthToken){
+      let alert = this.alertcontroller.create({
+          title: 'Error!',
+          subTitle: 'Please Sign in first.',
+          buttons: ['OK']
+          });
+      alert.present();
+      return false;
+    }
+  }
+
+
+
 
 
     save(){

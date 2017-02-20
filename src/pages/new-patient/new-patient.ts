@@ -7,6 +7,7 @@ import { GetPatients } from '../../providers/get-patients';
 import { StationsPage } from '../stations/stations';
 import { PatientTriagePage } from '../stations/patient-triage/patient-triage';
 import { SelectPatientPage } from '../select-patient/select-patient';
+import { AuthService } from '../../providers/authservice';
 
 // Validators
 import { PatientValidator } from  '../validators/v_patient';
@@ -24,7 +25,8 @@ export class NewPatientPage {
   patient_first_name: string;
   patient_last_name: string;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, private getPatientService: GetPatients, public alertcontroller: AlertController) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService, 
+            private getPatientService: GetPatients, public alertcontroller: AlertController) {
 
     this.newPatientForm = formBuilder.group({
       // need to fix all the name validators
@@ -35,6 +37,21 @@ export class NewPatientPage {
 
 
  
+  ionViewCanEnter(){
+    if(!this.authservice.AuthToken){
+      let alert = this.alertcontroller.create({
+          title: 'Error!',
+          subTitle: 'Please Sign in first.',
+          buttons: ['OK']
+          });
+      alert.present();
+      return false;
+    }
+  }
+
+
+
+
   save(){
     this.submitAttempt = true;
 

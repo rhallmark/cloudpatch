@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 import { Patient } from '../../models/patient';
 
@@ -7,6 +7,7 @@ import { StationsPage } from '../stations/stations';
 import { PatientTriagePage } from '../stations/patient-triage/patient-triage';
 
 import { GetPatients } from '../../providers/get-patients';
+import { AuthService } from '../../providers/authservice';
 
 @Component({
   selector: 'page-select-patient',
@@ -17,7 +18,8 @@ export class SelectPatientPage {
   patients: Patient[];
   originalPatients: Patient[];
 
-  constructor(public navCtrl: NavController, private getPatientService: GetPatients) {
+  constructor(public navCtrl: NavController, private getPatientService: GetPatients, public authservice: AuthService,
+              public alertcontroller: AlertController) {
     getPatientService.getPatientList().subscribe( patients =>{
       this.patients = patients;
       this.originalPatients = patients;
@@ -49,6 +51,21 @@ export class SelectPatientPage {
         })
       }
   }
+
+
+ 
+  ionViewCanEnter(){
+    if(!this.authservice.AuthToken){
+      let alert = this.alertcontroller.create({
+          title: 'Error!',
+          subTitle: 'Please Sign in first.',
+          buttons: ['OK']
+          });
+      alert.present();
+      return false;
+    }
+  }
+
 
 
   navToStations(patient: Patient) {

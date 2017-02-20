@@ -17,8 +17,16 @@ export class DrProfile {
 
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController) {}
 
-  ionViewDidLoad() {
-
+  ionViewCanEnter(){
+    if(!this.authservice.AuthToken){
+      let alert = this.alertcontroller.create({
+          title: 'Error!',
+          subTitle: 'Please Sign in first.',
+          buttons: ['OK']
+          });
+      alert.present();
+      return false;
+    }
   }
 
 
