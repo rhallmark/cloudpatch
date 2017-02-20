@@ -20,7 +20,15 @@
 
 <ion-content padding>
   <ion-searchbar (input)="search($event)"></ion-searchbar>
-  <h3>Patients</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-30><h3>Patients</h3></ion-col>
+      <ion-col width-20></ion-col>
+      <ion-col width-20></ion-col>
+      <ion-col width-30><button ion-button small (click)="sortingOptions()">Sorting</button></ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-list>
     <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToStations(patient)">
 

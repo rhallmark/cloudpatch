@@ -21,6 +21,7 @@ export class SelectPatientPage {
 
   patients: Patient[];
   originalPatients: Patient[];
+  sortedPatients: Patient[];
 
   constructor(public navCtrl: NavController, private getPatientService: GetPatients, public authservice: AuthService,
               public alertcontroller: AlertController) {
@@ -28,7 +29,6 @@ export class SelectPatientPage {
       this.patients = patients;
       this.originalPatients = patients;
     })
-
   }
 
   // ionViewWillLeave(){
@@ -52,12 +52,85 @@ export class SelectPatientPage {
         var testSearch = this.getPatientService.searchPatients(obj).subscribe(updatedList => {
           console.log(updatedList);
           this.patients = updatedList;
-        })
+        });
       }
   }
 
 
- 
+  sortingOptions() {
+    let alert = this.alertcontroller.create();
+    alert.setTitle('Sorting Options');
+
+
+    alert.addInput({
+      type: 'radio',
+      label: 'A-Z First Name',
+      value: 'A-Z First Name',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Z-A First Name',
+      value: 'Z-A First Name',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'A-Z Last Name',
+      value: 'A-Z Last Name',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Z-A Last Name',
+      value: 'Z-A Last Name',
+      checked: false
+    });
+
+      alert.addInput({
+      type: 'radio',
+      label: 'Ascending ID',
+      value: 'Ascending ID',
+      checked: false
+    });
+
+      alert.addInput({
+      type: 'radio',
+      label: 'Descending ID',
+      value: 'Descending ID',
+      checked: false
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        //this.testRadioOpen = false;
+        //this.testRadioResult = data;
+        this.sort(data);
+      }
+    });
+    alert.present();
+  }
+
+  sort(data){
+    if(data == "A-Z Last Name"){
+      this.getPatientService.getPatientList().subscribe( patients =>{
+        this.patients = patients;
+      });
+    }
+    else if(data == "Z-A Last Name"){
+      this.getPatientService.getPatientList().subscribe( patients =>{
+        this.patients = patients.reverse();
+      });
+    }
+
+  }
+
+
   ionViewCanEnter(){
     if(!this.authservice.AuthToken){
       let alert = this.alertcontroller.create({
