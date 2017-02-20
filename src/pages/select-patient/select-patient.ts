@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
+// Data Members
 import { Patient } from '../../models/patient';
 
+// Pages
+import { LoginPage } from '../login/login';
 import { StationsPage } from '../stations/stations';
 import { PatientTriagePage } from '../stations/patient-triage/patient-triage';
 
+// Services
 import { GetPatients } from '../../providers/get-patients';
 import { AuthService } from '../../providers/authservice';
 
@@ -58,7 +62,7 @@ export class SelectPatientPage {
     if(!this.authservice.AuthToken){
       let alert = this.alertcontroller.create({
           title: 'Error!',
-          subTitle: 'Please Sign in first.',
+          subTitle: 'Please Log in first.',
           buttons: ['OK']
           });
       alert.present();
@@ -70,6 +74,18 @@ export class SelectPatientPage {
 
   navToStations(patient: Patient) {
     this.navCtrl.push(StationsPage, {patient});
+  }
+
+
+  logout(){
+    this.authservice.destroyUserCredentials();
+      let alert = this.alertcontroller.create({
+          title: 'Logged Out',
+          subTitle: 'You have successfully logged out.',
+          buttons: ['OK']
+          });
+      alert.present();
+    this.navCtrl.setRoot(LoginPage);
   }
 
 

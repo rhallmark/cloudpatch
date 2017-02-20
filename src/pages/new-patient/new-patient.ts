@@ -2,11 +2,17 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, AlertController } from 'ionic-angular';
 
+// Data Members
 import { Patient } from '../../models/patient';
-import { GetPatients } from '../../providers/get-patients';
+
+// Pages
+import { LoginPage } from '../login/login';
 import { StationsPage } from '../stations/stations';
 import { PatientTriagePage } from '../stations/patient-triage/patient-triage';
 import { SelectPatientPage } from '../select-patient/select-patient';
+
+// Services
+import { GetPatients } from '../../providers/get-patients';
 import { AuthService } from '../../providers/authservice';
 
 // Validators
@@ -41,7 +47,7 @@ export class NewPatientPage {
     if(!this.authservice.AuthToken){
       let alert = this.alertcontroller.create({
           title: 'Error!',
-          subTitle: 'Please Sign in first.',
+          subTitle: 'Please Log in first.',
           buttons: ['OK']
           });
       alert.present();
@@ -99,6 +105,19 @@ export class NewPatientPage {
     //.then(this.navCtrl.push(StationsPage, {_id, patient_first_name}));
     // this.navCtrl.pop();
     // this.navCtrl.push(StationsPage, {_id, patient_first_name});
+  }
+
+
+
+  logout(){
+    this.authservice.destroyUserCredentials();
+      let alert = this.alertcontroller.create({
+          title: 'Logged Out',
+          subTitle: 'You have successfully logged out.',
+          buttons: ['OK']
+          });
+      alert.present();
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

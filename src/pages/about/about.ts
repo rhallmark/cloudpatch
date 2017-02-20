@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
+// Services
+import { AuthService } from '../../providers/authservice';
+
+// For setting root page to login page
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-about',
@@ -8,10 +13,24 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public authservice: AuthService, 
+              public alertcontroller: AlertController) {}
 
-  ionViewDidLoad() {
-    console.log('Hello About Page');
+
+
+
+  logout(){
+    // If use is logged in, destroy token and display logout message
+    if(this.authservice.AuthToken){
+      this.authservice.destroyUserCredentials();
+        let alert = this.alertcontroller.create({
+            title: 'Logged Out',
+            subTitle: 'You have successfully logged out.',
+            buttons: ['OK']
+            });
+        alert.present();
+    }
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

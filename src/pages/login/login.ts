@@ -55,11 +55,6 @@ export class LoginPage {
           //this.navCtrl.setPages(pages_auth);
           //MyApp.pages = pages_auth;
           this.navCtrl.setRoot(DrProfile);
-
-          // There should be a better way to do this!!
-          // This is currently sending it back to app.component.ts
-          // and reloading the entire app
-          window.location.reload(true);
         }
       });
     }

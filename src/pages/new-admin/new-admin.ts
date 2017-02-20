@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, AlertController } from 'ionic-angular';
 import { AuthService } from '../../providers/authservice';
 
+// For setting root page to login page
+import { LoginPage } from '../login/login';
+
 // Validators
 import { UsernameValidator } from  '../validators/v_username';
 
@@ -37,7 +40,7 @@ export class NewAdminPage {
     if(!this.authservice.AuthToken){
       let alert = this.alertcontroller.create({
           title: 'Error!',
-          subTitle: 'Please Sign in first.',
+          subTitle: 'Please Log in first.',
           buttons: ['OK']
           });
       alert.present();
@@ -68,6 +71,16 @@ export class NewAdminPage {
         })
       }
     }
- 
+
+  logout(){
+    this.authservice.destroyUserCredentials();
+      let alert = this.alertcontroller.create({
+          title: 'Logged Out',
+          subTitle: 'You have successfully logged out.',
+          buttons: ['OK']
+          });
+      alert.present();
+    this.navCtrl.setRoot(LoginPage);
+  }
 
 }

@@ -21,7 +21,7 @@ export class DrProfile {
     if(!this.authservice.AuthToken){
       let alert = this.alertcontroller.create({
           title: 'Error!',
-          subTitle: 'Please Sign in first.',
+          subTitle: 'Please Log in first.',
           buttons: ['OK']
           });
       alert.present();
@@ -32,8 +32,12 @@ export class DrProfile {
 
   logout(){
     this.authservice.destroyUserCredentials();
+      let alert = this.alertcontroller.create({
+          title: 'Logged Out',
+          subTitle: 'You have successfully logged out.',
+          buttons: ['OK']
+          });
+      alert.present();
     this.navCtrl.setRoot(LoginPage);
-    window.location.reload(true);
   }
-
 }
