@@ -60,11 +60,11 @@ export class GetPatients {
 
   getPatientList2():Promise<Patient[]> {
     //var creds = "name=" + user.userName + "&password=" + user.password;
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    //var headers = new Headers();
+    //headers.append('Content-Type', 'application/json');
 
     return new Promise(resolve => {
-        this.http.get(`${this.apiUrl}/patientList`, {headers: headers}).subscribe(data => {
+        this.http.get(`${this.apiUrl}/patientList`, {headers: this.headers}).subscribe(data => {
             console.log(data)
             if(data){
                 resolve(true);
