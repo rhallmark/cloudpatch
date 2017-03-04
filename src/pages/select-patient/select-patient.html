@@ -30,7 +30,8 @@
   </ion-grid>
 
   <ion-list>
-    <button ion-item *ngFor="let patient of patients" id="patients" (click)="navToStations(patient)">
+    <button ion-item *ngFor="let patient of patients" id="patients" 
+    (click)="navToStations(patient)" (press)="deletePatient($event, patient)">
 
       <div class="number">{{patient._id}}</div>
       <h2>{{ patient.patient_first_name }} {{patient.patient_last_name}}</h2>
@@ -41,3 +42,4 @@
     </button>
   </ion-list>
 </ion-content>
+

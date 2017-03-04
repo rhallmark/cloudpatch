@@ -15,6 +15,8 @@ import { LoginPage } from '../login/login';
 })
 export class DrProfile {
 
+options: string = "myDetails";
+
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController) {}
 
   ionViewCanEnter(){

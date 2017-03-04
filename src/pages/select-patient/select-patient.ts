@@ -31,6 +31,7 @@ export class SelectPatientPage {
     })
   }
 
+  // Potentially will help with searching stuff?
   // ionViewWillLeave(){
   //   this.patients=this.originalPatients;
   // }
@@ -149,6 +150,28 @@ export class SelectPatientPage {
     this.navCtrl.push(StationsPage, {patient});
   }
 
+  deletePatient(e, patient: Patient) {
+    let alert = this.alertcontroller.create({
+        title: 'Delete Patient?',
+        subTitle: ('Are you sure you want to delete '+patient.patient_first_name)
+        });
+
+    alert.addButton({
+      text: 'Delete',
+      handler: data => {
+        //Insert Delete Stuff Here
+      }
+    });
+
+    alert.addButton({
+      text: 'Cancel',
+      handler: data => {
+        //Insert Cancel stuff here?
+      }
+    });
+
+    alert.present();
+  }
 
   logout(){
     this.authservice.destroyUserCredentials();

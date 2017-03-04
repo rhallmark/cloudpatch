@@ -14,12 +14,60 @@
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
-
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="options">
+      <ion-segment-button value="myDetails" style="color:white;">
+        My Details
+      </ion-segment-button>
+      <ion-segment-button value="manage" style="color:white;">
+        Manage Doctors
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  <br>
-  <h3>Logged In!</h3>
-  <h3>This is your doctor profile!</h3>
+
+  <div [ngSwitch]="options">
+    <ion-list *ngSwitchCase="'myDetails'">
+      <ion-item>
+        <h2>First Name</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Last Name</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Prefix</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Account Type</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Contact Information</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Bio</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'manage'">
+      <ion-item>
+        <h2>Luna</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Milo</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Bandit</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Nala</h2>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
 </ion-content>
