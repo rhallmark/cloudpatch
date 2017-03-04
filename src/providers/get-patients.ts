@@ -63,6 +63,7 @@ export class GetPatients {
     //var headers = new Headers();
     //headers.append('Content-Type', 'application/json');
 
+    this.loadUserCredentials();
     console.log(this.headers);
 
     return new Promise(resolve => {
