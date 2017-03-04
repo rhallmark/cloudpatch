@@ -58,21 +58,21 @@ export class GetPatients {
       .map(res => <Patient[]>res.json());
   }
 
-    getPatientList2():Promise<Patient[]> {
-      //var creds = "name=" + user.userName + "&password=" + user.password;
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+  getPatientList2():Promise<Patient[]> {
+    //var creds = "name=" + user.userName + "&password=" + user.password;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
-      return new Promise(resolve => {
-          this.http.post(`${this.apiUrl}/patientList`, {headers: headers}).subscribe(data => {
-              console.log(data)
-              if(data){
-                  resolve(true);
-              }
-              resolve(false);
-          });
-      });
-    }
+    return new Promise(resolve => {
+        this.http.get(`${this.apiUrl}/patientList`, {headers: headers}).subscribe(data => {
+            console.log(data)
+            if(data){
+                resolve(true);
+            }
+            resolve(false);
+        });
+    });
+  }
 
   getPatient(patientID: string): Observable<Patient> {
     return this.http.get(`${this.apiUrl}/patient/${patientID}`, this.headers)
