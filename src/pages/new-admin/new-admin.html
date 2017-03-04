@@ -26,6 +26,11 @@
         <form [formGroup]="signUpForm">
     
         <ion-item>
+            <ion-label floating>Prefix</ion-label>
+            <ion-input formControlName="user_prefix" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
             <ion-label floating>First Name</ion-label>
             <ion-input formControlName="firstName" type="text" [class.invalid]="!signUpForm.controls.firstName.valid && (signUpForm.controls.firstName.dirty || submitAttempt)"></ion-input>
         </ion-item>
@@ -62,6 +67,11 @@
                     <ion-option value="admin" checked="true">Administrator</ion-option>
                     <ion-option value="user">User</ion-option>
                 </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Contact Information</ion-label>
+                <ion-textarea formControlName="contact_info"></ion-textarea>
             </ion-item>
 
             <ion-item>

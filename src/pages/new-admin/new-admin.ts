@@ -24,13 +24,15 @@ export class NewAdminPage {
               public authservice: AuthService, public alertcontroller: AlertController) {
 
     this.signUpForm = formBuilder.group({
-        firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-        lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required]), UsernameValidator.checkUsername],
+        user_first_name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        user_last_name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required]), UsernameValidator.checkUsername],
+        user_prefix: [''],
         username: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
-        type: ['',Validators.compose([Validators.required])],
+        account_type: ['',Validators.compose([Validators.required])],
+        contact_info: [''],
         bio: [''],
         password: ['', Validators.compose([Validators.required])],
-        passwordConf: ['', Validators.compose([Validators.required])]
+        password_conf: ['', Validators.compose([Validators.required])]
     });
  
   }
