@@ -63,6 +63,8 @@ export class GetPatients {
     //var headers = new Headers();
     //headers.append('Content-Type', 'application/json');
 
+    console.log(this.headers);
+
     return new Promise(resolve => {
         this.http.get(`${this.apiUrl}/patientList`, {headers: this.headers}).subscribe(data => {
             console.log(data)
