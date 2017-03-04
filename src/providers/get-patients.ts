@@ -23,19 +23,13 @@ export class GetPatients {
     setHeaders(){
       var headers = new Headers();
       // Here I should probably sanatize auth token somehow?
-      //headers.append('Authorization', 'JWT '+this.AuthToken);
-     // headers.append('Authorization', 'JWT '+this.AuthToken);
       var customHeaders = {headers: {
-        //"Content-Type" : 'application/x-www-form-urlencoded; charset=UTF-8',
-        //"Content-Type": "text/plain charset=UTF-8",
         "Authorization" : 'JWT ' + this.AuthToken
       }};
 
       var customAuth = {Authorization: {
         'JWT' : this.AuthToken
       }};
-
-      //console.log(headers);
 
       var jwtString: String = 'JWT ' + this.AuthToken;
 
@@ -64,6 +58,21 @@ export class GetPatients {
       .map(res => <Patient[]>res.json());
   }
 
+    getPatientList2():Promise<Patient[]> {
+      //var creds = "name=" + user.userName + "&password=" + user.password;
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+
+      return new Promise(resolve => {
+          this.http.post(`${this.apiUrl}/patientList`, {headers: headers}).subscribe(data => {
+              console.log(data)
+              if(data){
+                  resolve(true);
+              }
+              resolve(false);
+          });
+      });
+    }
 
   getPatient(patientID: string): Observable<Patient> {
     return this.http.get(`${this.apiUrl}/patient/${patientID}`, this.headers)

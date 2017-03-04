@@ -25,16 +25,25 @@ export class SelectPatientPage {
 
   constructor(public navCtrl: NavController, private getPatientService: GetPatients, public authservice: AuthService,
               public alertcontroller: AlertController) {
-    getPatientService.getPatientList().subscribe( patients =>{
-      this.patients = patients;
-      this.originalPatients = patients;
-    })
-  }
+
+      getPatientService.getPatientList2().then(patients=> {
+        if(patients){
+          this.patients = patients;
+          this.originalPatients = patients;
+        }
+      });
+
+
+  //   getPatientService.getPatientList().subscribe( patients =>{
+  //     this.patients = patients;
+  //     this.originalPatients = patients;
+  //   })
+  // }
 
   // Potentially will help with searching stuff?
   // ionViewWillLeave(){
   //   this.patients=this.originalPatients;
-  // }
+   }
 
 
   search(searchEvent){
