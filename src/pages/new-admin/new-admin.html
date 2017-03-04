@@ -32,19 +32,19 @@
 
         <ion-item>
             <ion-label floating>First Name</ion-label>
-            <ion-input formControlName="firstName" type="text" [class.invalid]="!signUpForm.controls.firstName.valid && (signUpForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+            <ion-input formControlName="user_first_name" type="text" [class.invalid]="!signUpForm.controls.user_first_name.valid && (signUpForm.controls.user_first_name.dirty || submitAttempt)"></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="!signUpForm.controls.firstName.valid  && (signUpForm.controls.firstName.dirty || submitAttempt)">
+        <ion-item *ngIf="!signUpForm.controls.user_first_name.valid  && (signUpForm.controls.user_first_name.dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Last Name</ion-label>
-            <ion-input formControlName="lastName" type="text" [class.invalid]="!signUpForm.controls.lastName.valid && (submitAttempt)"></ion-input>
+            <ion-input formControlName="user_last_name" type="text" [class.invalid]="!signUpForm.controls.user_last_name.valid && (submitAttempt)"></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="!signUpForm.controls.lastName.valid  && (signUpForm.controls.lastName.dirty || submitAttempt)">
+        <ion-item *ngIf="!signUpForm.controls.user_last_name.valid  && (signUpForm.controls.user_last_name.dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
         </ion-item>
 
@@ -61,23 +61,23 @@
             <p>Sorry, that username can not be used!</p>
         </ion-item>
 
-            <ion-item>
-                <ion-label floating>Account Type</ion-label>
-                <ion-select [class.invalid]="!signUpForm.controls.type.valid && (signUpForm.controls.type.dirty || submitAttempt)" formControlName="type">
-                    <ion-option value="admin" checked="true">Administrator</ion-option>
-                    <ion-option value="user">User</ion-option>
-                </ion-select>
-            </ion-item>
+        <ion-item>
+            <ion-label floating>Account Type</ion-label>
+            <ion-select [class.invalid]="!signUpForm.controls.account_type.valid && (signUpForm.controls.account_type.dirty || submitAttempt)" formControlName="account_type">
+                <ion-option value="admin" checked="true">Administrator</ion-option>
+                <ion-option value="user">User</ion-option>
+            </ion-select>
+        </ion-item>
 
-            <ion-item>
-                <ion-label floating>Contact Information</ion-label>
-                <ion-textarea formControlName="contact_info"></ion-textarea>
-            </ion-item>
+        <ion-item>
+            <ion-label floating>Contact Information</ion-label>
+            <ion-textarea formControlName="contact_info"></ion-textarea>
+        </ion-item>
 
-            <ion-item>
-                <ion-label floating>Bio</ion-label>
-                <ion-textarea formControlName="bio"></ion-textarea>
-            </ion-item>
+        <ion-item>
+            <ion-label floating>Bio</ion-label>
+            <ion-textarea formControlName="bio"></ion-textarea>
+        </ion-item>
 
         <ion-item>
             <ion-label floating>Password</ion-label>
@@ -91,13 +91,13 @@
 
         <ion-item>
             <ion-label floating>Password Confirmation</ion-label>
-            <ion-input formControlName="passwordConf" type="password" [class.invalid]="!signUpForm.controls.passwordConf.valid && (submitAttempt)"></ion-input>
+            <ion-input formControlName="password_conf" type="password" [class.invalid]="!signUpForm.controls.password_conf.valid && (submitAttempt)"></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="!signUpForm.controls.passwordConf.valid  && (signUpForm.controls.passwordConf.dirty || submitAttempt)">
+        <ion-item *ngIf="!signUpForm.controls.password_conf.valid  && (signUpForm.controls.password_conf.dirty || submitAttempt)">
             <p>Please enter a Password Confirmation.</p>
         </ion-item>
-        <ion-item *ngIf="(signUpForm.controls.passwordConf.value  != signUpForm.controls.password.value) && signUpForm.controls.passwordConf.dirty">
+        <ion-item *ngIf="(signUpForm.controls.password_conf.value  != signUpForm.controls.password.value) && signUpForm.controls.password_conf.dirty">
             <p>Password and Password Confirmation do not match!</p>
         </ion-item>
 

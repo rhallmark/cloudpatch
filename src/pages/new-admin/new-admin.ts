@@ -38,17 +38,17 @@ export class NewAdminPage {
   }
 
 
-  ionViewCanEnter(){
-    if(!this.authservice.AuthToken){
-      let alert = this.alertcontroller.create({
-          title: 'Error!',
-          subTitle: 'Please Log in first.',
-          buttons: ['OK']
-          });
-      alert.present();
-      return false;
-    }
-  }
+  // ionViewCanEnter(){
+  //   if(!this.authservice.AuthToken){
+  //     let alert = this.alertcontroller.create({
+  //         title: 'Error!',
+  //         subTitle: 'Please Log in first.',
+  //         buttons: ['OK']
+  //         });
+  //     alert.present();
+  //     return false;
+  //   }
+  // }
 
 
 
