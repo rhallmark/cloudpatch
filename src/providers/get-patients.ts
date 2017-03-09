@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import { AuthService } from './authservice';
-
 import { Patient } from '../models/patient';
 
 @Injectable()
@@ -58,6 +57,7 @@ export class GetPatients {
       .map(res => <Patient[]>res.json());
   }
 
+  // Currently unoperational. Migrating from observables to promises
   getPatientList2():Promise<Patient[]> {
     //var creds = "name=" + user.userName + "&password=" + user.password;
     //var headers = new Headers();
@@ -98,6 +98,7 @@ export class GetPatients {
     return this.http.post(`${this.apiUrl}/newPatient`, patient, this.headers)
       .map(res => <number>res.json());
   }
+
 
 
 }

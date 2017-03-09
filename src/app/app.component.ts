@@ -1,15 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
 import { StatusBar } from 'ionic-native';
 
+// Pages
 import { DrProfile } from '../pages/dr-profile/dr-profile';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { SelectPatientPage } from '../pages/select-patient/select-patient';
 import { NewPatientPage } from '../pages/new-patient/new-patient';
-import { NewAdminPage } from '../pages/new-admin/new-admin';
+import { NewUserPage } from '../pages/new-user/new-user';
 
 // needed?
 import { StationsPage } from '../pages/stations/stations';
@@ -31,7 +31,7 @@ export class MyApp {
       { title: 'My Profile', component: DrProfile },
       { title: 'Select Patient', component: SelectPatientPage },
       { title: 'New Patient', component: NewPatientPage },
-      { title: 'New Administrator', component: NewAdminPage },
+      { title: 'New User', component: NewUserPage },
       { title: 'About CloudPatch', component: AboutPage }
     ];
 
@@ -45,7 +45,7 @@ export class MyApp {
       { title: 'About CloudPatch', component: AboutPage },
       { title: 'Select Patient', component: SelectPatientPage },
       { title: 'New Patient', component: NewPatientPage },
-      { title: 'New Administrator', component: NewAdminPage },
+      { title: 'New User', component: NewUserPage },
       { title: 'My Profile', component: DrProfile }
     ];
 

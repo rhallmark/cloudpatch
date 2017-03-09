@@ -25,7 +25,6 @@ import { PatientValidator } from  '../validators/v_patient';
 export class NewPatientPage {
 
   newPatientForm: FormGroup;
-
   submitAttempt: boolean = false;
   patient: Patient;
   patient_first_name: string;
@@ -54,8 +53,6 @@ export class NewPatientPage {
       return false;
     }
   }
-
-
 
 
   save(){

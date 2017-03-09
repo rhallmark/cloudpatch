@@ -7,7 +7,7 @@ import { SelectPatientPage } from '../select-patient/select-patient';
 import { DrProfile } from '../dr-profile/dr-profile';
 import { AboutPage } from '../about/about';
 import { NewPatientPage } from '../new-patient/new-patient';
-import { NewAdminPage } from '../new-admin/new-admin';
+
 
 
 import { MyApp } from '../../app/app.component';

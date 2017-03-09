@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { SelectPatientPage } from '../pages/select-patient/select-patient';
 import { NewPatientPage } from '../pages/new-patient/new-patient';
-import { NewAdminPage } from '../pages/new-admin/new-admin';
+import { NewUserPage } from '../pages/new-user/new-user';
 
 // Station Pages
 import { StationsPage } from '../pages/stations/stations';
@@ -27,6 +27,7 @@ import { PatientPsychiatricPage } from '../pages/stations/patient-psychiatric/pa
 import { PatientWomenPage } from '../pages/stations/patient-women-health/patient-women';
 
 // Services
+import { GetUsers } from '../providers/get-users';
 import { GetPatients } from '../providers/get-patients';
 import { AuthService } from '../providers/authservice';
 
@@ -38,7 +39,7 @@ import { AuthService } from '../providers/authservice';
     AboutPage,
     SelectPatientPage,
     NewPatientPage,
-    NewAdminPage,
+    NewUserPage,
     StationsPage,
     PatientTriagePage,
     PatientCarePage,
@@ -64,7 +65,7 @@ import { AuthService } from '../providers/authservice';
     AboutPage,
     SelectPatientPage,
     NewPatientPage,
-    NewAdminPage,
+    NewUserPage,
     StationsPage,
     PatientTriagePage,
     PatientCarePage,
@@ -80,6 +81,6 @@ import { AuthService } from '../providers/authservice';
     PatientWomenPage,
     DrProfile
   ],
-  providers: [ GetPatients, AuthService ]
+  providers: [ GetUsers, GetPatients, AuthService ]
 })
 export class AppModule {}

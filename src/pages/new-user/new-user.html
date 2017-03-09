@@ -6,7 +6,7 @@
     </button>
 
     <ion-title>
-      New Administrator
+      New User
     </ion-title>
 
     <ion-buttons end>
@@ -20,15 +20,21 @@
 
 <ion-content padding>
     <br>
-    <h3>Create a New Administrator</h3>
+    <h3>Create a New User</h3>
             <!--<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
     <ion-list no-lines>
         <form [formGroup]="signUpForm">
     
         <ion-item>
-            <ion-label floating>Prefix</ion-label>
-            <ion-input formControlName="user_prefix" type="text"></ion-input>
+            <ion-label floating>Title</ion-label>
+            <ion-select formControlName="user_prefix">
+                <ion-option value="Mr" >Mr.</ion-option>
+                <ion-option value="Ms" >Ms.</ion-option>
+                <ion-option value="Mrs">Mrs.</ion-option>
+                <ion-option value="Dr" >Dr.</ion-option>
+            </ion-select>
         </ion-item>
+
 
         <ion-item>
             <ion-label floating>First Name</ion-label>
@@ -64,7 +70,7 @@
         <ion-item>
             <ion-label floating>Account Type</ion-label>
             <ion-select [class.invalid]="!signUpForm.controls.account_type.valid && (signUpForm.controls.account_type.dirty || submitAttempt)" formControlName="account_type">
-                <ion-option value="admin" checked="true">Administrator</ion-option>
+                <ion-option value="admin" >Administrator</ion-option>
                 <ion-option value="user">User</ion-option>
             </ion-select>
         </ion-item>
