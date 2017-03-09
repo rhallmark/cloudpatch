@@ -159,7 +159,7 @@ export class SelectPatientPage {
     this.navCtrl.push(StationsPage, {patient});
   }
 
-  deletePatient(e, patient: Patient) {
+  deletePatient(e, patient: Patient, index) {
     let alert = this.alertcontroller.create({
         title: 'Delete Patient?',
         subTitle: ('Are you sure you want to delete '+patient.patient_first_name)
@@ -168,7 +168,11 @@ export class SelectPatientPage {
     alert.addButton({
       text: 'Delete',
       handler: data => {
-        //Insert Delete Stuff Here
+        //Delete user then reload user list
+        this.getPatientService.deletePatient(patient._id.toString()).subscribe( deleteData =>{
+          this.patients.splice(index,1)
+        });
+
       }
     });
 
