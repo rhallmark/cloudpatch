@@ -58,9 +58,11 @@ options: string = "myDetails";
     alert.addButton({
       text: 'Delete',
       handler: data => {
-
+        //Delete user then reload user list
         this.getUserService.deleteUser(user._id.toString()).subscribe( deleteData =>{
-          console.log(deleteData)
+          this.getUserService.getUserList().subscribe( users =>{
+            this.users = users;
+          });
         });
 
       }
@@ -75,8 +77,6 @@ options: string = "myDetails";
 
     alert.present();
   }
-
-
 
 
 
