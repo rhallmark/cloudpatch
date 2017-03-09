@@ -19,6 +19,7 @@ import { LoginPage } from '../login/login';
 })
 export class DrProfile {
 
+username: string;
 myUser: User;
 users: User[];
 originalUsers: User[];
@@ -27,9 +28,9 @@ options: string = "myDetails";
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController, 
   public getUserService: GetUsers, private navParams: NavParams,) {
 
-    let username = navParams.get('username');
+    this.username = navParams.get('username');
 
-    getUserService.getUID(username).subscribe( user =>{
+    getUserService.getUID(this.username).subscribe( user =>{
       if(user._id){
         let userID: string = user._id.toString();
 
