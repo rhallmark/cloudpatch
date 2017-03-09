@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
+// Models
+import { User } from '../../models/user';
+
 // Services
+import { GetUsers } from '../../providers/get-users'
 import { GetPatients } from '../../providers/get-patients';
 import { AuthService } from '../../providers/authservice';
 
@@ -15,9 +19,18 @@ import { LoginPage } from '../login/login';
 })
 export class DrProfile {
 
+users: User[];
+originalUsers: User[];
 options: string = "myDetails";
 
-  constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController) {}
+  constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController, public getUserService: GetUsers) {
+
+    getUserService.getUserList().subscribe( users =>{
+      this.users = users;
+      this.originalUsers = users;
+    })
+  }
+
 
   ionViewCanEnter(){
     if(!this.authservice.AuthToken){

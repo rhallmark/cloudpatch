@@ -62,16 +62,16 @@ export class NewUserPage {
 
       console.log(this.signUpForm.value);
 
-      // this.getUserService.newUser(this.signUpForm.value).subscribe( patient_id => {
+      this.getUserService.newUser(this.signUpForm.value).subscribe( user_id => {
 
-      //   var alert = this.alertcontroller.create({
-      //     title: "Success!",
-      //     subTitle: "User Created.",
-      //     buttons: ["ok"]
-      //   });
-      //   alert.present();
+        var alert = this.alertcontroller.create({
+          title: "Success!",
+          subTitle: "User Created.",
+          buttons: ["ok"]
+        });
+        alert.present();
 
-      // });
+      });
 
     }
   }

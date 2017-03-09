@@ -72,11 +72,15 @@ export class GetUsers {
   }
 
 
-  newUser(patient): Observable<number> {
-    return this.http.post(`${this.apiUrl}/newUser`, patient, this.headers)
+  newUser(user): Observable<number> {
+    return this.http.post(`${this.apiUrl}/newUser`, user, this.headers)
       .map(res => <number>res.json());
   }
 
+  deleteUser(userID: string): Observable<number> {
+    return this.http.delete(`${this.apiUrl}/user/${userID}`, this.headers)
+      .map(res => <number>res.json());
+  }
 
 
 

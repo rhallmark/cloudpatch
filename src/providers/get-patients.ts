@@ -99,7 +99,10 @@ export class GetPatients {
       .map(res => <number>res.json());
   }
 
-
+  deletePatient(patientID: string): Observable<number> {
+    return this.http.delete(`${this.apiUrl}/patient/${patientID}`, this.headers)
+      .map(res => <number>res.json());
+  }
 
 }
 
