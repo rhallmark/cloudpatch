@@ -61,8 +61,8 @@
       <ion-item>
 
     <ion-list>
-      <button ion-item *ngFor="let user of users" id="users" 
-      (press)="deleteUser($event, user)">
+      <button ion-item *ngFor="let user of users, let index=index" id="users" 
+      (press)="deleteUser($event, user, index)">
 
         <div class="number">ID: {{user._id}}</div>
         <h2>{{ user.user_first_name }} {{user.user_last_name}}</h2>

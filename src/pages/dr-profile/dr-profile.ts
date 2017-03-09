@@ -49,7 +49,7 @@ options: string = "myDetails";
 
 
 
-  deleteUser(e, user: User) {
+  deleteUser(e, user: User, index) {
     let alert = this.alertcontroller.create({
         title: 'Delete User?',
         subTitle: ('Are you sure you want to delete '+user.user_first_name)
@@ -60,9 +60,7 @@ options: string = "myDetails";
       handler: data => {
         //Delete user then reload user list
         this.getUserService.deleteUser(user._id.toString()).subscribe( deleteData =>{
-          this.getUserService.getUserList().subscribe( users =>{
-            this.users = users;
-          });
+          this.users.splice(index,1)
         });
 
       }
