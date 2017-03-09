@@ -57,12 +57,13 @@ export class NewUserPage {
 
   save(){
     this.submitAttempt = true;
+    let newUser = this.signUpForm.value;
 
     if(this.signUpForm.valid){
 
-      console.log(this.signUpForm.value);
+      console.log(newUser);
 
-      this.getUserService.newUser(this.signUpForm.value).subscribe( user_id => {
+      this.getUserService.newUser(newUser).subscribe( user_id => {
 
         var alert = this.alertcontroller.create({
           title: "Success!",

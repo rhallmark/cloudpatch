@@ -47,14 +47,15 @@ export class LoginPage {
     if(this.loginForm.valid){
 
       let user = this.loginForm.value;
-      //console.log(user);
+      let username = this.loginForm.value.username;
+
       // Now authenticate the user if the form is valid
       this.authservice.authenticate(user).then(data => {
         if(data){
           // Need to access the pages variable here
           //this.navCtrl.setPages(pages_auth);
           //MyApp.pages = pages_auth;
-          this.navCtrl.setRoot(DrProfile);
+          this.navCtrl.setRoot(DrProfile, {username});
         }
       });
     }

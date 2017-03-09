@@ -60,6 +60,12 @@ export class GetUsers {
   }
 
 
+  getUID(userName: string): Observable<User> {
+    return this.http.get(`${this.apiUrl}/uid/${userName}`, this.headers)
+      .map(res => <User>res.json());
+  }
+
+
   getUser(userID: string): Observable<User> {
     return this.http.get(`${this.apiUrl}/user/${userID}`, this.headers)
       .map(res => <User>res.json());

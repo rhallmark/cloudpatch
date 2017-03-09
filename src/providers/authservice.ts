@@ -41,9 +41,6 @@ export class AuthService {
         //var creds = "name=" + user.userName + "&password=" + user.password;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        
-        console.log(doctor);
-        console.log(headers);
 
         return new Promise(resolve => {
             this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {

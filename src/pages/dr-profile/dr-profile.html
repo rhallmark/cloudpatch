@@ -22,7 +22,7 @@
         My Details
       </ion-segment-button>
       <ion-segment-button value="manage" style="color:white;">
-        Manage Doctors
+        Manage Users
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -37,10 +37,10 @@
         <h2>Prefix</h2>
       </ion-item>
       <ion-item>
-        <h2>First Name</h2>
+        <h2>First Name</h2> {{myUser.user_first_name}}
       </ion-item>
       <ion-item>
-        <h2>Last Name</h2>
+        <h2>Last Name</h2> {{myUser.user_last_name}}
       </ion-item>
       <ion-item>
         <h2>Account Type</h2>
@@ -54,14 +54,14 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'manage'">
-      <h1>All Doctors</h1>
+      <h1>All Users</h1>
       <ion-item>
 
     <ion-list>
       <button ion-item *ngFor="let user of users" id="users" 
-      (press)="deleteUser($event, patient)">
+      (press)="deleteUser($event, user)">
 
-        <div class="number">{{user._id}}</div>
+        <div class="number">ID: {{user._id}}</div>
         <h2>{{ user.user_first_name }} {{user.user_last_name}}</h2>
         <!--<div class="numberCircle">{{patient.id}}</div>
         <h2>{{ patient.login }}</h2>-->
