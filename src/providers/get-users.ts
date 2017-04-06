@@ -12,8 +12,8 @@ import { User } from '../models/user';
 @Injectable()
 export class GetUsers {
 
-  apiUrl: string = 'http://159.203.167.54:5000';
-  //apiUrl: string = 'http://hallmark.cloud';
+  //apiUrl: string = 'http://159.203.167.54:5000';
+  apiUrl: string = 'http://hallmark.cloud:5000';
   AuthToken;
   headers;
 
