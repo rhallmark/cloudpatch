@@ -36,6 +36,7 @@ options: string = "myDetails";
 
         getUserService.getUser(userID).subscribe( user =>{
           this.myUser = user;
+          //window.localStorage.setItem('id', String(user._id));
         });
       }
     });
@@ -46,7 +47,6 @@ options: string = "myDetails";
       this.originalUsers = users;
     });
   }
-
 
 
   deleteUser(e, user: User, index) {
@@ -81,15 +81,15 @@ options: string = "myDetails";
 
 
   ionViewCanEnter(){
-    if(!this.authservice.AuthToken){
-      let alert = this.alertcontroller.create({
-          title: 'Error!',
-          subTitle: 'Please Log in first.',
-          buttons: ['OK']
-          });
-      alert.present();
-      return false;
-    }
+    // if(!this.authservice.AuthToken){
+    //   let alert = this.alertcontroller.create({
+    //       title: 'Error!',
+    //       subTitle: 'Please Log in first.',
+    //       buttons: ['OK']
+    //       });
+    //   alert.present();
+    //   return false;
+    // }
   }
 
 
