@@ -34,7 +34,7 @@
   <div [ngSwitch]="options">
     <ion-list *ngSwitchCase="'myDetails'">
       <ion-item>
-        <h2>Username</h2> {{user.username}}
+        <h2>Username</h2> {{user?.username}}
       </ion-item>
       <ion-item>
         <h2>Prefix</h2>
