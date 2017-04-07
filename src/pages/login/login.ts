@@ -58,9 +58,12 @@ export class LoginPage {
           //MyApp.pages = pages_auth;
           console.log("made it to 1 ");
           console.log(data);
+
           this.getUserService.getUID(username).subscribe( user =>{
+            console.log("made it to 2:" + user._id)
+
             if(user._id){
-              console.log("made it 2:" + user._id)
+              console.log("made it to 3:" + user._id)
               let userID: string = user._id.toString();
 
               this.getUserService.getUser(userID).subscribe( user =>{
