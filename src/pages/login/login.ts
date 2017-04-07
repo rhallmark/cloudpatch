@@ -8,11 +8,7 @@ import { DrProfile } from '../dr-profile/dr-profile';
 import { AboutPage } from '../about/about';
 import { NewPatientPage } from '../new-patient/new-patient';
 
-// Services
-import { GetUsers } from '../../providers/get-users'
 
-// Models
-import { User } from '../../models/user';
 
 import { MyApp } from '../../app/app.component';
 
@@ -25,7 +21,7 @@ export class LoginPage {
   loginForm: FormGroup;
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService, public getUserService: GetUsers) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService) {
 
     // this.loginForm = formBuilder.group([
     //   userName: ['',[Validators.required]],
@@ -59,26 +55,37 @@ export class LoginPage {
           // Need to access the pages variable here
           //this.navCtrl.setPages(pages_auth);
           //MyApp.pages = pages_auth;
-          console.log("made it to 1 ");
-          console.log(data);
-
-          this.getUserService.getUID(username).subscribe( user1 =>{
-            let userID: string = user1._id.toString();
-            console.log("made it to 2: "+userID);
-
-            if(userID){
-              console.log("made it to 3:" );
-              this.getUserService.getUser(userID).subscribe( fullUser =>{
-                console.log(fullUser);
-                this.navCtrl.setRoot(DrProfile, {fullUser});
-              });
-            }
-          });
-        }
-        else{
-          console.log("welp that didnt work")
+          this.navCtrl.setRoot(DrProfile, {username});
         }
       });
+
+      // // Now authenticate the user if the form is valid
+      // this.authservice.authenticate(user).then(data => {
+      //   if(data){
+      //     // Need to access the pages variable here
+      //     //this.navCtrl.setPages(pages_auth);
+      //     //MyApp.pages = pages_auth;
+      //     console.log("made it to 1 ");
+      //     console.log(data);
+
+      //     this.getUserService.getUID(username).subscribe( user1 =>{
+      //       let userID: string = user1._id.toString();
+      //       console.log("made it to 2: "+userID);
+
+      //       if(userID){
+      //         console.log("made it to 3:" );
+      //         this.getUserService.getUser(userID).subscribe( fullUser =>{
+      //           console.log(fullUser);
+      //           this.navCtrl.setRoot(DrProfile, {fullUser});
+      //         });
+      //       }
+      //     });
+      //   }
+      //   else{
+      //     console.log("welp that didnt work")
+      //   }
+      // });
+
     }
   }
  

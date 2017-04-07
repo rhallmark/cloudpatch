@@ -28,18 +28,18 @@ options: string = "myDetails";
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController, 
   public getUserService: GetUsers, private navParams: NavParams,) {
 
-    this.myUser = navParams.get('user');
+    this.username = navParams.get('username');
 
-    // getUserService.getUID(this.username).subscribe( user =>{
-    //   if(user._id){
-    //     let userID: string = user._id.toString();
+    getUserService.getUID(this.username).subscribe( user =>{
+      if(user._id){
+        let userID: string = user._id.toString();
 
-    //     getUserService.getUser(userID).subscribe( user =>{
-    //       this.myUser = user;
-    //       //window.localStorage.setItem('id', String(user._id));
-    //     });
-    //   }
-    // });
+        getUserService.getUser(userID).subscribe( user =>{
+          this.myUser = user;
+          //window.localStorage.setItem('id', String(user._id));
+        });
+      }
+    });
 
 
     getUserService.getUserList().subscribe( users =>{
