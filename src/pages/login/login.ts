@@ -8,7 +8,8 @@ import { DrProfile } from '../dr-profile/dr-profile';
 import { AboutPage } from '../about/about';
 import { NewPatientPage } from '../new-patient/new-patient';
 
-
+// Services
+import { GetUsers } from '../../providers/get-users'
 
 import { MyApp } from '../../app/app.component';
 
@@ -21,7 +22,7 @@ export class LoginPage {
   loginForm: FormGroup;
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authservice: AuthService, public getUserService: GetUsers) {
 
     // this.loginForm = formBuilder.group([
     //   userName: ['',[Validators.required]],
@@ -55,7 +56,19 @@ export class LoginPage {
           // Need to access the pages variable here
           //this.navCtrl.setPages(pages_auth);
           //MyApp.pages = pages_auth;
-          this.navCtrl.setRoot(DrProfile, {username});
+
+          this.getUserService.getUID(username).subscribe( user =>{
+            if(user._id){
+              let userID: string = user._id.toString();
+
+              this.getUserService.getUser(userID).subscribe( user =>{
+                this.navCtrl.setRoot(DrProfile, {user});
+              });
+            }
+          });
+        }
+        else{
+          console.log("welp that didnt work")
         }
       });
     }
