@@ -71,6 +71,7 @@ export class LoginPage {
               let userID: string = userid.toString();
 
               this.getUserService.getUser(userID).subscribe( fullUser =>{
+                console.log(fullUser);
                 this.navCtrl.setRoot(DrProfile, {fullUser});
               });
             }
