@@ -62,13 +62,13 @@ export class LoginPage {
           console.log("made it to 1 ");
           console.log(data);
 
-          this.getUserService.getUID(username).subscribe( userid =>{
+          this.getUserService.getUID(username).subscribe( user1 =>{
             
-            console.log("made it to 2: " + userid);
+            console.log("made it to 2: "+user1._id);
 
-            if(userid){
+            if(user1._id){
               console.log("made it to 3:" );
-              let userID: string = userid.toString();
+              let userID: string = user1._id.toString();
 
               this.getUserService.getUser(userID).subscribe( fullUser =>{
                 console.log(fullUser);
