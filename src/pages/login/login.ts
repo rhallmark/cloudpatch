@@ -56,9 +56,11 @@ export class LoginPage {
           // Need to access the pages variable here
           //this.navCtrl.setPages(pages_auth);
           //MyApp.pages = pages_auth;
-
+          console.log("made it to 1 ");
+          console.log(data);
           this.getUserService.getUID(username).subscribe( user =>{
             if(user._id){
+              console.log("made it 2:" + user._id)
               let userID: string = user._id.toString();
 
               this.getUserService.getUser(userID).subscribe( user =>{
