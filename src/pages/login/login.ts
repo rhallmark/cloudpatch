@@ -63,13 +63,11 @@ export class LoginPage {
           console.log(data);
 
           this.getUserService.getUID(username).subscribe( user1 =>{
-            
-            console.log("made it to 2: "+user1._id);
+            let userID: string = user1._id.toString();
+            console.log("made it to 2: "+userID);
 
-            if(user1._id){
+            if(userID){
               console.log("made it to 3:" );
-              let userID: string = user1._id.toString();
-
               this.getUserService.getUser(userID).subscribe( fullUser =>{
                 console.log(fullUser);
                 this.navCtrl.setRoot(DrProfile, {fullUser});
