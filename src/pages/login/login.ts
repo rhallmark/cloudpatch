@@ -11,6 +11,9 @@ import { NewPatientPage } from '../new-patient/new-patient';
 // Services
 import { GetUsers } from '../../providers/get-users'
 
+// Models
+import { User } from '../../models/user';
+
 import { MyApp } from '../../app/app.component';
 
 @Component({
@@ -59,15 +62,16 @@ export class LoginPage {
           console.log("made it to 1 ");
           console.log(data);
 
-          this.getUserService.getUID(username).subscribe( user =>{
-            console.log("made it to 2:" + user._id)
+          this.getUserService.getUID(username).subscribe( userid =>{
+            
+            console.log("made it to 2: " + userid);
 
-            if(user._id){
-              console.log("made it to 3:" + user._id)
-              let userID: string = user._id.toString();
+            if(userid){
+              console.log("made it to 3:" );
+              let userID: string = userid.toString();
 
-              this.getUserService.getUser(userID).subscribe( user =>{
-                this.navCtrl.setRoot(DrProfile, {user});
+              this.getUserService.getUser(userID).subscribe( fullUser =>{
+                this.navCtrl.setRoot(DrProfile, {fullUser});
               });
             }
           });
