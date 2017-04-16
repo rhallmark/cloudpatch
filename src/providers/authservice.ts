@@ -1,5 +1,10 @@
 import {Injectable, Inject} from '@angular/core';
+import { NavController, AlertController } from 'ionic-angular';
 import {Http, Headers} from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Patient } from '../models/patient';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +15,7 @@ export class AuthService {
     //apiUrl: string = 'http://159.203.167.54';
     apiUrl: string = 'http://hallmark.cloud:5000';
 
-    constructor(public http: Http) {
+    constructor(public http: Http, public alertcontroller: AlertController) {
         this.http = http;
         this.isLoggedin = false;
         this.AuthToken = null;
@@ -37,47 +42,47 @@ export class AuthService {
         window.localStorage.clear();
     }
     
+
+    //attempt to auth dr
+    auth(doctor): Observable<any> {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        //console.log(this.AuthToken);
+        //console.log(`${this.apiUrl}/patientList`, this.headers);
+
+        return this.http.post(`${this.apiUrl}/auth`, doctor, headers)
+        .map(res => <any>res.json())
+        .catch(this.handleError);
+    }
+
+
+    handleError(error){
+        //console.log(error);
+
+        let new_err = {'error': 'Invalid Credentials'};
+        return Observable.throw(error);
+    }
+
     authenticate(doctor) {
         //var creds = "name=" + user.userName + "&password=" + user.password;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        return new Promise(resolve => {
+        return new Promise((resolve,reject) => {
             this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {
-                console.log(data)
-                if(data){
+                console.log(data.json());
+                if(data.json().success){
                     this.storeUserCredentials(data.json().access_token);
-                    resolve(true);
+                    resolve(true),(error=>{
+                        let err_data = JSON.parse(error._body);
+                        console.log("got to error data");
+                        resolve(err_data);
+                    })
                 }
-                resolve(false);
+                reject("Testing");
             });
         });
 
-        // if(doctor.userName == "russ"){
-        //     if(doctor.password == "123"){
-        //         let token = "supersecretstuff";
-        //         this.storeUserCredentials(token);
-        //         return new Promise(resolve => {
-        //             token;
-        //             resolve(true);
-        //         });
-        //     }
-        // }
-
-
-        // return new Promise(resolve => {
-        //     this.http.post(`${this.apiUrl}/auth`, doctor, {headers: headers}).subscribe(data => {
-        //         console.log(data)
-        //         if(data.json().success){
-        //             console.log(data);
-        //             // Once they are authenticated,
-        //             this.storeUserCredentials(data.json().access_token);
-        //             resolve(true);
-        //         }
-        //         else
-        //             resolve(false);
-        //     });
-        // });
     }
 
     adduser(doctor) {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Models
 import { User } from '../../models/user';
@@ -18,29 +19,40 @@ import { LoginPage } from '../login/login';
 
 })
 export class DrProfile {
+  submitAttempt: boolean = false;
+  profileForm: FormGroup;
 
-username: string;
-myUser: User;
-users: User[];
-originalUsers: User[];
-options: string = "myDetails";
+  user: User;
+  id: string;
+  users: User[];
+  originalUsers: User[];
+  options: string = "myDetails";
 
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertcontroller: AlertController, 
-  public getUserService: GetUsers, private navParams: NavParams,) {
+  public getUserService: GetUsers, private navParams: NavParams, public formBuilder: FormBuilder ) {
 
-    this.username = navParams.get('username');
+    this.id = navParams.get('userID');
+    console.log(this.id);
 
-    getUserService.getUID(this.username).subscribe( user =>{
-      if(user._id){
-        let userID: string = user._id.toString();
+    if(this.id){
+      this.getUserService.getUser(this.id).subscribe( fullUser =>{
+        console.log(fullUser);
 
-        getUserService.getUser(userID).subscribe( user =>{
-          this.myUser = user;
-          //window.localStorage.setItem('id', String(user._id));
-        });
-      }
-    });
+        this.user = fullUser;
 
+        // this.profileForm = formBuilder.group({
+        //     username: [this.user.username],
+        //     user_prefix: [this.user.user_prefix],
+        //     user_first_name: [this.user.user_first_name],
+        //     user_last_name: [this.user.user_last_name],
+        //     account_type: [this.user.account_type],
+        //     bio: [this.user.bio],
+        //     contact_phone: [this.user.contact_phone],
+        //     contact_email: [this.user.contact_email]
+        // });
+
+      });
+    }
 
     getUserService.getUserList().subscribe( users =>{
       this.users = users;
@@ -81,15 +93,15 @@ options: string = "myDetails";
 
 
   ionViewCanEnter(){
-    // if(!this.authservice.AuthToken){
-    //   let alert = this.alertcontroller.create({
-    //       title: 'Error!',
-    //       subTitle: 'Please Log in first.',
-    //       buttons: ['OK']
-    //       });
-    //   alert.present();
-    //   return false;
-    // }
+    if(!this.authservice.AuthToken){
+      let alert = this.alertcontroller.create({
+          title: 'Error!',
+          subTitle: 'Please Log in first.',
+          buttons: ['OK']
+          });
+      alert.present();
+      return false;
+    }
   }
 
 
