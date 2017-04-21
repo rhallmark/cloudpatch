@@ -81,8 +81,8 @@ export class LoginPage {
   valid_login(username){
     console.log("logging in user "+username);
     this.getUserService.getUID(username).subscribe( uid =>{
-    let userID:string = uid._id.toString();
-    this.navCtrl.setRoot(DrProfile,{userID});
+      let userID:string = uid._id.toString();
+      this.navCtrl.setRoot(DrProfile,{userID});
     });
   }
 

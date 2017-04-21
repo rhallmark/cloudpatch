@@ -22,6 +22,7 @@ export class AuthService {
     }
     
     storeUserCredentials(token) {
+        console.log("Setting token as: " + token);
         window.localStorage.setItem('token', token);
         this.useCredentials(token);
     }
@@ -51,7 +52,11 @@ export class AuthService {
         //console.log(`${this.apiUrl}/patientList`, this.headers);
 
         return this.http.post(`${this.apiUrl}/auth`, doctor, headers)
-        .map(res => <any>res.json())
+        .map(res => {
+            <any>res.json();
+            // console.log(res.json());
+            this.storeUserCredentials(res.json().access_token);
+        })
         .catch(this.handleError);
     }
 
